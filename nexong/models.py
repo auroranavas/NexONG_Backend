@@ -166,3 +166,37 @@ class User(AbstractBaseUser):
         super().clean()
         if not self.numero_telefono.isdigit():
             raise ValidationError("El número de teléfono debe contener solo dígitos.")
+
+class Centre_Exit(models.Model):
+    authoritation = models.CharField(max_length=100)
+    responsible=models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class User_Has_Meeting(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE)
+    
+class User_Event(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+
+class User_Has_Class(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
+
+class Class_Has_Evaluation(models.Model):
+    lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
+    user_family = models.ForeignKey(User, on_delete=models.CASCADE)
+    evaluation = models.ForeignKey(Evaluation, on_delete=models.CASCADE)
+    grade = models.IntegerField(validators=[MinValueValidator(9),MaxValueValidator(10)])
+    date = models.DateField(null=True)
+    evaluation_type = models.CharField(max_length=100)
+    
+class User_Has_Evaluation(models.Model):
+    grade = models.FloatField()
+    date = models.DateField(blank = True)
+    user_educator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_evaluator')
+    user_evaluated = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_evaluated')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
