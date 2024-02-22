@@ -4,8 +4,8 @@ Follow this guide to setup the project:
 
 ### Configure virtual enviroment
 - Install virtualenv `pip install virtualenv`
-- Create a project directory `mkdir gametrail-env`
-- Move to env directory with `cd gametrail-env`
+- Create a project directory `mkdir nexong-env`
+- Move to env directory with `cd nexong-env`
 - Create virtual enviroment `virtualenv venv -p python3.11` or `python -m venv <virtrualenv>`
 - Activate virtual enviroment
     - **(MacOS)** with `source venv/bin/activate` 
@@ -13,8 +13,8 @@ Follow this guide to setup the project:
 > Note: if you are not going to use the app, dont forget to deactivate the virtualenv by simply writing `deactivate`
   
 ### Clone and install requirements
-- Clone gametrail-backend repository `git clone https://github.com/GameTrail/gametrail-backend.git`
-- Move to gametrail repo with `cd gametrail-backend`
+- Clone NexONG-backend repository `git clone https://github.com/ISPP-G5/NexONG_Backend.git`
+- Move to NexOng repo with `cd NexONG_Backend`
 - Install project dependencies `pip install -r requirements.txt`
 
 ### Migrate the app
