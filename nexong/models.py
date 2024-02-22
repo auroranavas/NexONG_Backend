@@ -12,7 +12,6 @@ VOLUNTEER = 'VOLUNTEER'
 FAMILY = 'FAMILY'
 PARTNER = 'PARTNER'
 VOLUNTEER_PARTNER= 'VOLUNTEER_PARTNER'
-
 ROLE = [
     (ADMIN, 'Administrador'),
     (VOLUNTEER, 'Voluntario'),
@@ -24,7 +23,6 @@ ROLE = [
 PENDING = 'PENDING'
 ACCEPTED = 'ACCEPTED'
 REJECTED = 'REJECTED'
-
 STATUS = [
     (PENDING, 'Pendiente'),
     (ACCEPTED, 'Aceptado'),
@@ -53,8 +51,7 @@ FIRST_SECONDARY = 'FIRST_SECONDARY'
 SECOND_SECONDARY = 'SECOND_SECONDARY'
 THIRD_SECONDARY= 'THIRD_SECONDARY'
 FOURTH_SECONDARY= 'FOURTH_SECONDARY'
-
-CURRENTEDUCATIONYEAR=[
+CURRENT_EDUCATION_YEAR=[
     (THREE_YEARS, 'Tres años'),
     (FOUR_YEARS, 'Cuatro años'),
     (FIVE_YEARS, 'Cinco años'),
@@ -70,6 +67,15 @@ CURRENTEDUCATIONYEAR=[
     (FOURTH_SECONDARY,'Cuarto de secundaria'), 
 ]
 
+ZERO_TO_ONE = 'ZERO_TO_ONE'
+ONE_TO_FIVE = 'ONE_TO_FIVE'
+ZERO_TO_TEN = 'ZERO_TO_TEN'
+GRADESYSTEM = [
+    (ZERO_TO_ONE, '0-1'),
+    (ONE_TO_FIVE, '1-5'),
+    (ZERO_TO_TEN, '0-10'),
+    
+]
 class Family(models.Model):
     name = models.CharField(max_length=255)
     documents = models.CharField(max_length=250)
@@ -90,18 +96,48 @@ class Volunteer(models.Model):
         default=PENDING)
     verify=models.BooleanField(default=False)
     documents = models.CharField(max_length=100)
+    
+class Event(models.Model):
+    name=models.CharField(max_length=100)
+    description=models.CharField(max_length=1000)
+    place=models.CharField(max_length=1000)
+    capacity=models.IntegerField(validators=[MinValueValidator(0)])
+    max_volunteers=models.IntegerField(validators=[MinValueValidator(0)])
+    start_date=models.DateTimeField(blank=True)
+    end_date=models.DateTimeField(blank=True)
 
 
+class Meeting(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=1000)
+    date = models.DateField(blank = True)
+    start_date = models.DateTimeField(blank = True)
+
+class Class(models.Model):
+    name = models.CharField(max_length=100)
+    description=models.CharField(max_length=1000)
+    capacity=models.IntegerField(validators=[
+        MinValueValidator(0),
+        MaxValueValidator(500)], blank=True)
+
+class Evaluation(models.Model):
+    name = models.CharField(max_length=100)
+    description=models.CharField(max_length=1000)
+    gradeSystem = models.CharField(
+        max_length=20, 
+        choices=GRADESYSTEM,
+        default=ZERO_TO_TEN)
+    
 class User(AbstractBaseUser):
     name = models.CharField(max_length=50, blank = True)
     surname = models.CharField(max_length=100, blank = True)
-    nationalID = models.CharField(max_length=9, unique=True,blank = True)
+    national_ID = models.CharField(max_length=9, unique=True,blank = True)
     nationality = models.CharField(max_length=50,blank = True)
-    educativeCentre = models.CharField(max_length=100, blank = True)
-    educativeCentreTutor = models.CharField(max_length=50, blank = True)
-    currentEducationYear = models.CharField(
+    educative_centre = models.CharField(max_length=100, blank = True)
+    educative_centre_tutor = models.CharField(max_length=50, blank = True)
+    current_education_year = models.CharField(
         max_length=25,
-        choices=CURRENTEDUCATIONYEAR,
+        choices=CURRENT_EDUCATION_YEAR,
         default=THREE_YEARS,
     )
     birthdate = models.DateField(null=True)
