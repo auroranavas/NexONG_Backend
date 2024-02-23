@@ -76,6 +76,12 @@ GRADESYSTEM = [
     (ZERO_TO_TEN, '0-10'),
     
 ]
+DIARY = 'DIARY'
+ANNUAL = 'ANNUAL'
+EVALUATION_TYPE = [
+    (DIARY, 'Diario'),
+    (ANNUAL, 'Anual'),
+]
 class Family(models.Model):
     name = models.CharField(max_length=255)
     documents = models.CharField(max_length=250)
@@ -83,6 +89,7 @@ class Family(models.Model):
 class Partner(models.Model):
     holder = models.CharField(max_length=50, unique=True)
     iban = models.CharField(max_length=34, unique=True)
+    quantity = models.IntegerField(default=0)
     frecuency = models.CharField(max_length=11,choices=FRECUENCY, default=MENSUAL)
     total = models.FloatField()
     documents = models.CharField(max_length=250)
@@ -90,21 +97,13 @@ class Partner(models.Model):
 class Volunteer(models.Model):
     academic_formation=models.CharField(max_length=1000)
     motivation=models.CharField(max_length=1000)
+    verify=models.BooleanField(default=False)
     status=models.CharField(
         max_length=10, 
         choices=STATUS,
         default=PENDING)
-    verify=models.BooleanField(default=False)
     documents = models.CharField(max_length=100)
     
-class Event(models.Model):
-    name=models.CharField(max_length=100)
-    description=models.CharField(max_length=1000)
-    place=models.CharField(max_length=1000)
-    capacity=models.IntegerField(validators=[MinValueValidator(0)])
-    max_volunteers=models.IntegerField(validators=[MinValueValidator(0)])
-    start_date=models.DateTimeField(blank=True)
-    end_date=models.DateTimeField(blank=True)
 
 
 class Meeting(models.Model):
@@ -119,6 +118,16 @@ class Class(models.Model):
     capacity=models.IntegerField(validators=[
         MinValueValidator(0),
         MaxValueValidator(500)], blank=True)
+
+class Event(models.Model):
+    name=models.CharField(max_length=100)
+    description=models.CharField(max_length=1000)
+    place=models.CharField(max_length=1000)
+    capacity=models.IntegerField(validators=[MinValueValidator(0)])
+    max_volunteers=models.IntegerField(validators=[MinValueValidator(0)])
+    start_date=models.DateTimeField(blank=True)
+    end_date=models.DateTimeField(blank=True)
+    lesson = models.ForeignKey(Class, on_delete=models.CASCADE) 
 
 class Evaluation(models.Model):
     name = models.CharField(max_length=100)
@@ -167,6 +176,13 @@ class User(AbstractBaseUser):
         if not self.numero_telefono.isdigit():
             raise ValidationError("El número de teléfono debe contener solo dígitos.")
 
+class Comment(models.Model):
+    title=models.CharField(max_length=25)
+    text=models.CharField(max_length=500)
+    date_time=models.DateTimeField(blank=True)
+    user_commented = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_commented')
+    user_who_comment = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_who_comment')
+
 class Centre_Exit(models.Model):
     authoritation = models.CharField(max_length=100)
     responsible=models.CharField(max_length=100)
@@ -186,17 +202,22 @@ class User_Has_Class(models.Model):
     lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
 
 class Class_Has_Evaluation(models.Model):
-    lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
-    user_family = models.ForeignKey(User, on_delete=models.CASCADE)
-    evaluation = models.ForeignKey(Evaluation, on_delete=models.CASCADE)
     grade = models.IntegerField(validators=[MinValueValidator(9),MaxValueValidator(10)])
     date = models.DateField(null=True)
-    evaluation_type = models.CharField(max_length=100)
-    
+    evaluation_type = models.CharField(
+        max_length=25,
+        choices=EVALUATION_TYPE,
+        default=DIARY,
+    )
+    lesson = models.ForeignKey(Class, on_delete=models.CASCADE) 
+    user_family = models.ForeignKey(User, on_delete=models.CASCADE)
+    evaluation =  models.ForeignKey(Evaluation, on_delete=models.CASCADE)
+  
+   
 class User_Has_Evaluation(models.Model):
     grade = models.FloatField()
     date = models.DateField(blank = True)
+    evaluation = models.ForeignKey(Evaluation, on_delete=models.CASCADE)
     user_educator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_evaluator')
     user_evaluated = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_evaluated')
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
