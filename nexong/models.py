@@ -128,7 +128,7 @@ class Event(models.Model):
     max_volunteers=models.IntegerField(validators=[MinValueValidator(0)])
     start_date=models.DateTimeField(blank=True)
     end_date=models.DateTimeField(blank=True)
-    lesson = models.ForeignKey(Class, on_delete=models.CASCADE) 
+    lesson = models.ForeignKey(Class, on_delete=models.CASCADE, null = True, blank = True) 
 
 class Evaluation(models.Model):
     name = models.CharField(max_length=100)
@@ -151,7 +151,7 @@ class User(AbstractBaseUser):
         default=THREE_YEARS,
     )
     birthdate = models.DateField(null=True)
-    phone = models.IntegerField( default = '000000000', validators = [MaxLengthValidator(9), MinLengthValidator(9)]) 
+    phone = models.IntegerField( default = 600000000, validators = [MaxValueValidator(999999999), MinValueValidator(600000000)]) 
     email = models.EmailField(unique=True) 
     role = models.CharField(
         max_length=25,
@@ -162,21 +162,17 @@ class User(AbstractBaseUser):
     avatar=models.URLField(validators=[URLValidator()]) 
     address = models.CharField(max_length=255)
     postal_code= models.IntegerField(validators=[
-        MinLengthValidator(5), 
-        MaxLengthValidator(5)], default = '00000')
-    family = models.ForeignKey(Family, on_delete=models.CASCADE, blank=True)
-    partner = models.ForeignKey(Partner, on_delete=models.CASCADE, blank=True)
-    volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE, blank=True)
+        MinValueValidator(10000), 
+        MaxValueValidator(90000)], default = 10000)
+    family = models.ForeignKey(Family, on_delete=models.CASCADE, blank=True, null = True)
+    partner = models.ForeignKey(Partner, on_delete=models.CASCADE, blank=True, null = True)
+    volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE, blank=True, null = True)
     last_login = None
     is_active = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['email']
-    def clean(self):
-        super().clean()
-        if not self.numero_telefono.isdigit():
-            raise ValidationError("El número de teléfono debe contener solo dígitos.")
-
+    
 class Comment(models.Model):
     title=models.CharField(max_length=25)
     text=models.CharField(max_length=800)
