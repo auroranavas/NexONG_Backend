@@ -1,5 +1,69 @@
 [   
     {
+        "model": "nexong.family",
+        "pk": 1,
+        "fields": {
+            "name": "Familia Enriquez",
+            "documents": "DNI"
+            }
+    },
+    {
+        "model": "nexong.partner",
+        "pk": 1,
+        "fields": {
+            "holder": "Santander",
+            "iban" : "NL86ABNA6733307944",
+            "quantity": 38,
+            "frecuency": 1,
+            "total":120,
+            "documents":"URL"
+            }
+    },
+    {
+        "model": "nexong.volunteer",
+        "pk": 1,
+        "fields": {
+            "academic_formation": "Bachiller",
+            "motivation" : "Ayudar niños",
+            "verify": false,
+            "status":0,
+            "documents":"URL"
+            }
+    },
+    {
+        "model": "nexong.meeting",
+        "pk": 1,
+        "fields": {
+            "name": "Clase 16 Febrero",
+            "description" : "Clase teórica",
+            "date":"2024-02-16",
+            "start_date":"2024-02-16 17:50-00:00"
+            }
+    },
+    {
+        "model": "nexong.class",
+        "pk": 1,
+        "fields" : {
+            "name": "Soft Computing",
+            "description": "Módulo I, segunda planta",
+            "capacity": 50
+            }
+    },
+    {
+        "model": "nexong.event",
+        "pk": 1,
+        "fields" : {
+            "name": "Excursión al Ordenador",
+            "description": "Vamos al centro a ver El Ordenador",
+            "place":"Centro Sevilla",
+            "capacity": 100,
+            "max_volunteers" : 10,
+            "start_date":"2024-02-28 12:00-00:00",
+            "end_date":"2024-02-28 18:00-00:00",
+            "lesson": 1
+            }
+    },
+    {
         "model": "nexong.user",
         "pk": 1,
         "fields": {
@@ -47,46 +111,10 @@
             "volunteer":1
             }
     },
-    {
-        "model": "nexong.partner",
-        "pk": 1,
-        "fields": {
-            "holder": "Santander",
-            "iban" : "NL86ABNA6733307944",
-            "quantity": 38,
-            "frecuency": 1,
-            "total":120,
-            "documents":"URL"
-            }
-    },
-    {
-        "model": "nexong.volunteer",
-        "pk": 1,
-        "fields": {
-            "academic_formation": "Bachiller",
-            "motivation" : "Ayudar niños",
-            "verify": false,
-            "status":0,
-            "documents":"URL"
-            }
-    },
-    {
-        "model": "nexong.family",
-        "pk": 1,
-        "fields": {
-            "name": "Familia Enriquez",
-            "documents": "DNI"
-            }
-    },
-    {
-        "model": "nexong.class",
-        "pk": 1,
-        "fields" : {
-            "name": "Soft Computing",
-            "description": "Módulo I, segunda planta",
-            "capacity": 50
-            }
-    },
+    
+    
+    
+   
     {
         "model": "nexong.evaluation",
         "pk": 1,
@@ -95,18 +123,5 @@
             "description": "Examen del tema 1, 17 febrero",
             "gradeSystem": 0
             }
-    },
-    {
-        "model": "nexong.user_has_evaluation",
-        "pk": 1,
-        "fields" : {
-            "grade": "5",
-            "date": "2024-02-17",
-            "evaluation_type": 0,
-            "lesson":1,
-            "user_family":1,
-            "evaluation":1
-            }
     }
-    
   ]
