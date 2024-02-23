@@ -84,7 +84,8 @@ EVALUATION_TYPE = [
 ]
 class Family(models.Model):
     name = models.CharField(max_length=255)
-    documents = models.CharField(max_length=250)
+    parent_ID = models.CharField(max_length=9, unique=True)
+    phone = models.IntegerField( default = 600000000, validators = [MaxValueValidator(999999999), MinValueValidator(600000000)]) 
 
 class Partner(models.Model):
     holder = models.CharField(max_length=50, unique=True)
@@ -92,19 +93,33 @@ class Partner(models.Model):
     quantity = models.IntegerField(default=0 ,validators=[
         MinValueValidator(0)])
     frecuency = models.CharField(max_length=11,choices=FRECUENCY, default=MENSUAL)
-    total = models.FloatField(default = 0.0, validators=[
-        MinValueValidator(0)])
-    documents = models.CharField(max_length=250)
+    phone = models.IntegerField( default = 600000000, validators = [MaxValueValidator(999999999), MinValueValidator(600000000)])
+    email = models.EmailField(unique=True) 
+    partner_ID = models.CharField(max_length=9, unique=True)
+    address = models.CharField(max_length=255)
+    enrollment_document = models.FileField()
+    quota_extension_document = models.FileField()
     
 class Volunteer(models.Model):
     academic_formation=models.CharField(max_length=1000)
     motivation=models.CharField(max_length=1000)
-    verify=models.BooleanField(default=False)
     status=models.CharField(
         max_length=10, 
         choices=STATUS,
         default=PENDING)
-    documents = models.CharField(max_length=100)
+    phone = models.IntegerField( default = 600000000, validators = [MaxValueValidator(999999999), MinValueValidator(600000000)])
+    email = models.EmailField(unique=True)
+    address = models.CharField(max_length=255)
+    postal_code= models.IntegerField(validators=[
+        MinValueValidator(10000), 
+        MaxValueValidator(90000)], default = 10000)
+    inscription_document = models.FileField()
+    registry_sheet = models.FileField()
+    sexual_offenses_document = models.FileField()
+    scanned_volunteer_id = models.FileField()
+    minor_authorization = models.FileField()
+    scanned_authorizer_id = models.FileField()
+    
     
 
 
@@ -112,7 +127,7 @@ class Meeting(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
     date = models.DateField(blank = True)
-    start_date = models.DateTimeField(blank = True)
+    time = models.DateTimeField(blank = True)
 
 class Class(models.Model):
     name = models.CharField(max_length=100)
@@ -137,12 +152,8 @@ class Evaluation(models.Model):
         max_length=20, 
         choices=GRADESYSTEM,
         default=ZERO_TO_TEN)
-    
-class User(AbstractBaseUser):
-    name = models.CharField(max_length=50)
-    surname = models.CharField(max_length=100)
-    national_ID = models.CharField(max_length=9, unique=True)
-    nationality = models.CharField(max_length=50)
+
+class Student(models.Model):
     educative_centre = models.CharField(max_length=100)
     educative_centre_tutor = models.CharField(max_length=50)
     current_education_year = models.CharField(
@@ -150,9 +161,20 @@ class User(AbstractBaseUser):
         choices=CURRENT_EDUCATION_YEAR,
         default=THREE_YEARS,
     )
-    birthdate = models.DateField(null=True)
-    phone = models.IntegerField( default = 600000000, validators = [MaxValueValidator(999999999), MinValueValidator(600000000)]) 
+    enrollment_document = models.FileField()
+    scanned_sanitary_card = models.FileField()
+    family = models.ForeignKey(Family, on_delete=models.CASCADE)
+
+class Educator(models.Model):
+    phone = models.IntegerField( default = 600000000, validators = [MaxValueValidator(999999999), MinValueValidator(600000000)])
     email = models.EmailField(unique=True) 
+    educator_ID = models.CharField(max_length=9, unique=True)
+
+class User(AbstractBaseUser):
+    name = models.CharField(max_length=50)
+    surname = models.CharField(max_length=100)
+    nationality = models.CharField(max_length=50)
+    birthdate = models.DateField(null=True)
     role = models.CharField(
         max_length=25,
         choices=ROLE,
@@ -164,14 +186,16 @@ class User(AbstractBaseUser):
     postal_code= models.IntegerField(validators=[
         MinValueValidator(10000), 
         MaxValueValidator(90000)], default = 10000)
-    family = models.ForeignKey(Family, on_delete=models.CASCADE, blank=True, null = True)
-    partner = models.ForeignKey(Partner, on_delete=models.CASCADE, blank=True, null = True)
-    volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE, blank=True, null = True)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE, blank=True, null = True)
+    partner = models.OneToOneField(Partner, on_delete=models.CASCADE, blank=True, null = True)
+    volunteer = models.OneToOneField(Volunteer, on_delete=models.CASCADE, blank=True, null = True)
+    educator = models.OneToOneField(Educator, on_delete=models.CASCADE, blank=True, null = True)
     last_login = None
     is_active = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = 'name' 
+    REQUIRED_FIELDS = ['name']
+
     
 class Comment(models.Model):
     title=models.CharField(max_length=25)
@@ -209,7 +233,7 @@ class Class_Has_Evaluation(models.Model):
         default=DIARY,
     )
     lesson = models.ForeignKey(Class, on_delete=models.CASCADE) 
-    user_family = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_student = models.ForeignKey(User, on_delete=models.CASCADE)
     evaluation =  models.ForeignKey(Evaluation, on_delete=models.CASCADE)
   
    
