@@ -1,0 +1,112 @@
+[   
+    {
+        "model": "nexong.user",
+        "pk": 1,
+        "fields": {
+            "name": "Josan",
+            "surname" : "Enriquez",
+            "national_ID": "12345678S",
+            "nationality": "España",
+            "educative_centre":"Doctrina",
+            "educative_centre_tutor":"Palomino",
+            "current_education_year":0,
+            "birthdate": "2002-04-13",
+            "phone": "123456789",
+            "email":"josenr@gmail.com",
+            "role": 0,
+            "password": "contra",
+            "avatar": "https://avatars.githubusercontent.com/u/73229175?v=4",
+            "address": "Sevilla Centro 13",
+            "postal_code": 41120,
+            "family":1,
+            "partner":1,
+            "volunteer":1
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 2,
+        "fields": {
+            "name": "Emilio",
+            "surname" : "Enriquez",
+            "national_ID": "98457832S",
+            "nationality": "España",
+            "educative_centre":"Doctrina",
+            "educative_centre_tutor":"Palomino",
+            "current_education_year":3,
+            "birthdate": "2008-08-02",
+            "phone": "666895478",
+            "email":"emienr@gmail.com",
+            "role": 0,
+            "password": "seña",
+            "avatar": "https://avatars.githubusercontent.com/u/463956",
+            "address": "Sevilla Centro 13",
+            "postal_code": 41120,
+            "family":1,
+            "partner":1,
+            "volunteer":1
+            }
+    },
+    {
+        "model": "nexong.partner",
+        "pk": 1,
+        "fields": {
+            "holder": "Santander",
+            "iban" : "NL86ABNA6733307944",
+            "quantity": 38,
+            "frecuency": 1,
+            "total":120,
+            "documents":"URL"
+            }
+    },
+    {
+        "model": "nexong.volunteer",
+        "pk": 1,
+        "fields": {
+            "academic_formation": "Bachiller",
+            "motivation" : "Ayudar niños",
+            "verify": false,
+            "status":0,
+            "documents":"URL"
+            }
+    },
+    {
+        "model": "nexong.family",
+        "pk": 1,
+        "fields": {
+            "name": "Familia Enriquez",
+            "documents": "DNI"
+            }
+    },
+    {
+        "model": "nexong.class",
+        "pk": 1,
+        "fields" : {
+            "name": "Soft Computing",
+            "description": "Módulo I, segunda planta",
+            "capacity": 50
+            }
+    },
+    {
+        "model": "nexong.evaluation",
+        "pk": 1,
+        "fields" : {
+            "name": "Examen Tema 1",
+            "description": "Examen del tema 1, 17 febrero",
+            "gradeSystem": 0
+            }
+    },
+    {
+        "model": "nexong.user_has_evaluation",
+        "pk": 1,
+        "fields" : {
+            "grade": "5",
+            "date": "2024-02-17",
+            "evaluation_type": 0,
+            "lesson":1,
+            "user_family":1,
+            "evaluation":1
+            }
+    }
+    
+  ]
