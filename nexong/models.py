@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator, MaxLengthValidator, MinLengthValidator, URLValidator
 from django.utils import timezone 
 
 # Create your models here.
@@ -89,11 +89,13 @@ class Family(models.Model):
 class Partner(models.Model):
     holder = models.CharField(max_length=50, unique=True)
     iban = models.CharField(max_length=34, unique=True)
-    quantity = models.IntegerField(default=0)
+    quantity = models.IntegerField(default=0 ,validators=[
+        MinValueValidator(0)])
     frecuency = models.CharField(max_length=11,choices=FRECUENCY, default=MENSUAL)
-    total = models.FloatField()
+    total = models.FloatField(default = 0.0, validators=[
+        MinValueValidator(0)])
     documents = models.CharField(max_length=250)
-
+    
 class Volunteer(models.Model):
     academic_formation=models.CharField(max_length=1000)
     motivation=models.CharField(max_length=1000)
@@ -116,14 +118,13 @@ class Class(models.Model):
     name = models.CharField(max_length=100)
     description=models.CharField(max_length=1000)
     capacity=models.IntegerField(validators=[
-        MinValueValidator(0),
-        MaxValueValidator(500)], blank=True)
+        MinValueValidator(0)], blank=True)
 
 class Event(models.Model):
     name=models.CharField(max_length=100)
     description=models.CharField(max_length=1000)
     place=models.CharField(max_length=1000)
-    capacity=models.IntegerField(validators=[MinValueValidator(0)])
+    capacity=models.IntegerField(default= 0, validators=[MinValueValidator(0)])
     max_volunteers=models.IntegerField(validators=[MinValueValidator(0)])
     start_date=models.DateTimeField(blank=True)
     end_date=models.DateTimeField(blank=True)
@@ -138,34 +139,34 @@ class Evaluation(models.Model):
         default=ZERO_TO_TEN)
     
 class User(AbstractBaseUser):
-    name = models.CharField(max_length=50, blank = True)
-    surname = models.CharField(max_length=100, blank = True)
-    national_ID = models.CharField(max_length=9, unique=True,blank = True)
-    nationality = models.CharField(max_length=50,blank = True)
-    educative_centre = models.CharField(max_length=100, blank = True)
-    educative_centre_tutor = models.CharField(max_length=50, blank = True)
+    name = models.CharField(max_length=50)
+    surname = models.CharField(max_length=100)
+    national_ID = models.CharField(max_length=9, unique=True)
+    nationality = models.CharField(max_length=50)
+    educative_centre = models.CharField(max_length=100)
+    educative_centre_tutor = models.CharField(max_length=50)
     current_education_year = models.CharField(
         max_length=25,
         choices=CURRENT_EDUCATION_YEAR,
         default=THREE_YEARS,
     )
     birthdate = models.DateField(null=True)
-    phone = models.IntegerField(validators=[MinValueValidator(9),MaxValueValidator(9)], default = '000000000')
-    email = models.EmailField(unique=True)
+    phone = models.IntegerField( default = '000000000', validators = [MaxLengthValidator(9), MinLengthValidator(9)]) 
+    email = models.EmailField(unique=True) 
     role = models.CharField(
         max_length=25,
         choices=ROLE,
         default=FAMILY,
     )
     password = models.CharField(max_length=500, null = False)
-    avatar=models.ImageField()
-    address = models.CharField(max_length=255, blank=True)
+    avatar=models.URLField(validators=[URLValidator()]) 
+    address = models.CharField(max_length=255)
     postal_code= models.IntegerField(validators=[
-        MinValueValidator(5),
-        MaxValueValidator(5)], default = '00000')
-    family = models.ForeignKey(Family, on_delete=models.CASCADE, null=True)
-    partner = models.ForeignKey(Partner, on_delete=models.CASCADE, null=True)
-    volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE, null=True)
+        MinLengthValidator(5), 
+        MaxLengthValidator(5)], default = '00000')
+    family = models.ForeignKey(Family, on_delete=models.CASCADE, blank=True)
+    partner = models.ForeignKey(Partner, on_delete=models.CASCADE, blank=True)
+    volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE, blank=True)
     last_login = None
     is_active = models.BooleanField(default=False)
 
@@ -178,14 +179,14 @@ class User(AbstractBaseUser):
 
 class Comment(models.Model):
     title=models.CharField(max_length=25)
-    text=models.CharField(max_length=500)
-    date_time=models.DateTimeField(blank=True)
+    text=models.CharField(max_length=800)
+    date_time=models.DateTimeField()
     user_commented = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_commented')
     user_who_comment = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_who_comment')
 
 class Centre_Exit(models.Model):
-    authoritation = models.CharField(max_length=100)
-    responsible=models.CharField(max_length=100)
+    authorization = models.CharField(max_length=100)
+    responsible=models.CharField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
@@ -202,9 +203,11 @@ class User_Has_Class(models.Model):
     lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
 
 class Class_Has_Evaluation(models.Model):
-    grade = models.IntegerField(validators=[MinValueValidator(9),MaxValueValidator(10)])
-    date = models.DateField(null=True)
-    evaluation_type = models.CharField(
+    grade = models.FloatField(validators=[
+        MinValueValidator(0.0),
+        MaxValueValidator(10.0)])
+    date = models.DateField()
+    evaluation_type = models.CharField( 
         max_length=25,
         choices=EVALUATION_TYPE,
         default=DIARY,
@@ -215,8 +218,10 @@ class Class_Has_Evaluation(models.Model):
   
    
 class User_Has_Evaluation(models.Model):
-    grade = models.FloatField()
-    date = models.DateField(blank = True)
+    grade = models.FloatField(validators=[
+        MinValueValidator(0.0),
+        MaxValueValidator(10.0)])
+    date = models.DateField()
     evaluation = models.ForeignKey(Evaluation, on_delete=models.CASCADE)
     user_educator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_evaluator')
     user_evaluated = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_evaluated')
