@@ -1,21 +1,23 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
 # Create your models here.
 
-ADMIN = 'ADMIN'
-VOLUNTEER = 'VOLUNTEER'
-EDUCATOR = 'EDUCATOR'
-FAMILY = 'FAMILY'
-PARTNER = 'PARTNER'
+ADMIN = "ADMIN"
+VOLUNTEER = "VOLUNTEER"
+EDUCATOR = "EDUCATOR"
+FAMILY = "FAMILY"
+PARTNER = "PARTNER"
 
 PLAN_CHOICES = [
-    (ADMIN, 'Admin'),
-    (VOLUNTEER, 'Voluntario'),
-    (EDUCATOR, 'Educador'),
-    (FAMILY, 'Familia'),
-    (PARTNER, 'Socio'),
+    (ADMIN, "Admin"),
+    (VOLUNTEER, "Voluntario"),
+    (EDUCATOR, "Educador"),
+    (FAMILY, "Familia"),
+    (PARTNER, "Socio"),
 ]
+
 
 class User(AbstractBaseUser):
 
@@ -33,9 +35,25 @@ class User(AbstractBaseUser):
     last_login = None
     is_active = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = "username"
+    REQUIRED_FIELDS = ["email"]
+
     def clean(self):
         super().clean()
         if not self.numero_telefono.isdigit():
             raise ValidationError("El número de teléfono debe contener solo dígitos.")
+
+
+class Meeting(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=1000)
+    date = models.DateTimeField(blank=True)
+    attendees = models.ManyToManyField(User, through="UserHasMeeting")
+
+
+class UserHasMeeting(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ("user", "meeting")
