@@ -4,7 +4,8 @@
         "pk": 1,
         "fields": {
             "name": "Familia Enriquez",
-            "documents": "DNI"
+            "parent_ID": 3,
+            "phone": 605948966
             }
     },
     {
@@ -15,8 +16,12 @@
             "iban" : "NL86ABNA6733307944",
             "quantity": 38,
             "frecuency": 1,
-            "total":120,
-            "documents":"URL"
+            "phone":609495867,
+            "email":"partner@gmail.com",
+            "partner_ID": "2354",
+            "address": "",
+            "enrollment_document":null,
+            "quota_extension_document": null
             }
     },
     {
@@ -25,9 +30,17 @@
         "fields": {
             "academic_formation": "Bachiller",
             "motivation" : "Ayudar niños",
-            "verify": false,
             "status":0,
-            "documents":"URL"
+            "phone" : 1235958954,
+            "email":"volunteer@gmail.com",
+            "address": "",
+            "postal_code": 41220,
+            "inscription_document": null,
+            "registry_sheet": null,
+            "sexual_offenses_document": null,
+            "scanned_volunteer_id": null,
+            "minor_authorization": null,
+            "scanned_authorizer_id": null
             }
     },
     {
@@ -37,7 +50,7 @@
             "name": "Clase 16 Febrero",
             "description" : "Clase teórica",
             "date":"2024-02-16",
-            "start_date":"2024-02-16 17:50-00:00"
+            "time":"2024-02-16 17:50-00:00"
             }
     },
     {
@@ -64,27 +77,73 @@
             }
     },
     {
+        "model": "nexong.evaluation",
+        "pk": 1,
+        "fields" : {
+            "name": "Examen Tema 1",
+            "description": "Examen del tema 1, 17 febrero",
+            "gradeSystem": 0
+            }
+    },
+    {
+        "model": "nexong.evaluation",
+        "pk": 2,
+        "fields" : {
+            "name": "No estoy contento",
+            "description": "No me ha gustado el curso",
+            "gradeSystem": 0
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 1,
+        "fields" : {
+            "educative_centre": "Doctrina",
+            "educative_centre_tutor": "Palomino",
+            "current_education_year": 0,
+            "enrollment_document": null,
+            "scanned_sanitary_card": null,
+            "family":1
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 2,
+        "fields" : {
+            "educative_centre": "Doctrina",
+            "educative_centre_tutor": "Palomino",
+            "current_education_year": 3,
+            "enrollment_document": null,
+            "scanned_sanitary_card": null,
+            "family":1
+            }
+    },
+    {
+        "model": "nexong.educator",
+        "pk": 1,
+        "fields" : {
+            "phone": 506979235,
+            "email": "palomino@gmail.com",
+            "educator_ID": "1"
+            }
+    },
+    {
         "model": "nexong.user",
         "pk": 1,
         "fields": {
             "name": "Josan",
             "surname" : "Enriquez",
-            "national_ID": "12345678S",
             "nationality": "España",
-            "educative_centre":"Doctrina",
-            "educative_centre_tutor":"Palomino",
-            "current_education_year":0,
             "birthdate": "2002-04-13",
-            "phone": "123456789",
-            "email":"josenr@gmail.com",
-            "role": 0,
+            "role": 3,
             "password": "contra",
             "avatar": "https://avatars.githubusercontent.com/u/73229175?v=4",
             "address": "Sevilla Centro 13",
             "postal_code": 41120,
-            "family":1,
-            "partner":1,
-            "volunteer":1
+            "student":1,
+            "partner":null,
+            "volunteer":null,
+            "educator":null
             }
     },
     {
@@ -93,35 +152,142 @@
         "fields": {
             "name": "Emilio",
             "surname" : "Enriquez",
-            "national_ID": "98457832S",
             "nationality": "España",
-            "educative_centre":"Doctrina",
-            "educative_centre_tutor":"Palomino",
-            "current_education_year":3,
             "birthdate": "2008-08-02",
-            "phone": "666895478",
-            "email":"emienr@gmail.com",
-            "role": 0,
+            "role": 3,
             "password": "seña",
             "avatar": "https://avatars.githubusercontent.com/u/463956",
             "address": "Sevilla Centro 13",
             "postal_code": 41120,
-            "family":1,
-            "partner":1,
-            "volunteer":1
+            "student":2,
+            "partner":null,
+            "volunteer":null,
+            "educator":null
             }
     },
-    
-    
-    
-   
     {
-        "model": "nexong.evaluation",
+        "model": "nexong.user",
+        "pk": 3,
+        "fields": {
+            "name": "Palomino",
+            "surname" : "Vergara",
+            "nationality": "España",
+            "birthdate": "1965-08-02",
+            "role": 2,
+            "password": "profesol",
+            "avatar": "https://avatars.githubusercontent.com/u/43956",
+            "address": "Sevilla Afueras 12",
+            "postal_code": 41122,
+            "student":null,
+            "partner":null,
+            "volunteer":null,
+            "educator":1
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 4,
+        "fields": {
+            "name": "Voluntario",
+            "surname" : "Voluptas",
+            "nationality": "España",
+            "birthdate": "1995-11-22",
+            "role": 1,
+            "password": "volutalio",
+            "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
+            "address": "Sevilla Adentros 32",
+            "postal_code": 41042,
+            "student":null,
+            "partner":null,
+            "volunteer":1,
+            "educator":null
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 5,
+        "fields": {
+            "name": "Socio",
+            "surname" : "Socales",
+            "nationality": "España",
+            "birthdate": "1982-10-13",
+            "role": 4,
+            "password": "parnerio",
+            "avatar": "https://media.istockphoto.com/id/1342067848/photo/excited-african-guy-showing-dollar-money-cash-over-blue-background.jpg?s=612x612&w=0&k=20&c=7GW75apTo16dxHA1tXwoFaFmFshAHDaLhu2fOyJq1BI=",
+            "address": "Sevilla Amedias 40",
+            "postal_code": 40042,
+            "student":null,
+            "partner":1,
+            "volunteer":null,
+            "educator":null
+            }
+    },
+    {
+        "model": "nexong.comment",
         "pk": 1,
-        "fields" : {
-            "name": "Examen Tema 1",
-            "description": "Examen del tema 1, 17 febrero",
-            "gradeSystem": 0
+        "fields": {
+            "title": "Este es mi hermano",
+            "text" : "Es mi hermano y le tolero en clase",
+            "date_time": "2023-08-02:09:12-00:00",
+            "user_commented": 1,
+            "user_who_comment": 2
+            }
+    },
+    {
+        "model": "nexong.centre_exit",
+        "pk": 1,
+        "fields": {
+            "authorization": "La madre del alumno ha firmado",
+            "responsible" : "María Teresa",
+            "user": "1"
+            }
+    },
+    {
+        "model": "nexong.user_has_meeting",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "meeting" : 1
+            }
+    },
+    {
+        "model": "nexong.user_event",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "event" : 1
+            }
+    },
+    {
+        "model": "nexong.user_has_class",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "lesson" : 1
+            }
+    },
+    {
+        "model": "nexong.class_has_evaluation",
+        "pk": 1,
+        "fields": {
+            "grade": 5.5,
+            "date" : "2023-10-12",
+            "evaluation_type":0,
+            "lesson": 1,
+            "user_student": 1,
+            "evaluation": 2
+            }
+    },
+    {
+        "model": "nexong.user_has_evaluation",
+        "pk": 1,
+        "fields": {
+            "grade": 2.5,
+            "date" : "2024-2-17",
+            "user_educator": 3,
+            "user_evaluated": 1,
+            "evaluation": 1,
+            "lesson": 1
             }
     }
   ]
