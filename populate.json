@@ -13,12 +13,12 @@
             "name": "Emilio",
             "surname" : "Enriquez",
             "education_center": "Doctrina",
-            "current_education_year": 0,
+            "current_education_year": "FOURTH_SECONDARY",
             "education_center_tutor": "Palomino",
             "enrollment_document": null,
             "scanned_sanitary_card": null,
             "nationality" : "España",
-            "birthdate" : "2002-04-13",
+            "birthdate" : "2008-04-13",
             "family":1
             }
     },
@@ -29,12 +29,12 @@
             "name": "Josan",
             "surname" : "Enriquez",
             "education_center": "Doctrina",
-            "current_education_year": 3,
+            "current_education_year": "THIRD_PRIMARY",
             "education_center_tutor": "Palomino",
             "enrollment_document": null,
             "scanned_sanitary_card": null,
             "nationality" : "España",
-            "birthdate" : "2008-08-02",
+            "birthdate" : "2015-08-02",
             "family":1
         }
     },
@@ -45,7 +45,7 @@
             "holder": "Santander",
             "iban" : "NL86ABNA6733307944",
             "quantity": 38,
-            "frequency": 1,
+            "frequency": "MENSUAL",
             "address": "Sevilla Adentros 32",
             "enrollment_document":null,
             "quota_extension_document": null,
@@ -87,7 +87,7 @@
             "surname" : "Vergara",
             "id_number" : "57935784A",
             "phone" : 605234354,
-            "role": 2,
+            "role": "EDUCATOR",
             "password": "profesol",
             "email": "palomino@gmail.com",
             "avatar": "https://avatars.githubusercontent.com/u/43956",
@@ -95,7 +95,7 @@
             "partner":null,
             "volunteer":null,
             "educator":1,
-            "is_admin": true
+            "is_admin": false
             }
     },
     {
@@ -106,7 +106,7 @@
             "surname" : "Voluptas",
             "id_number" : "57925784A",
             "phone" : 605233333,
-            "role": 1,
+            "role": "VOLUNTEER",
             "password": "volutalio",
             "email": "voluntario@gmail.com",
             "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
@@ -125,7 +125,7 @@
             "surname" : "Socales",
             "id_number" : "57123784T",
             "phone" : 666666999,
-            "role": 4,
+            "role": "PARTNER",
             "password": "parnerio",
             "email": "socio@gmail.com",
             "avatar": "https://media.istockphoto.com/id/1342067848/photo/excited-african-guy-showing-dollar-money-cash-over-blue-background.jpg?s=612x612&w=0&k=20&c=7GW75apTo16dxHA1tXwoFaFmFshAHDaLhu2fOyJq1BI=",
@@ -144,7 +144,7 @@
             "surname" : "Enriquez",
             "id_number" : "85933958G",
             "phone" : 596748302,
-            "role": 3,
+            "role": "FAMILY",
             "password": "papa",
             "email": "padre@gmail.com",
             "avatar": "https://images.hola.com/images/027f-178e051fb317-8ce95081f1b5-1000/horizontal-1200/padre-e-hijo.jpg",
@@ -159,8 +159,8 @@
         "model": "nexong.meeting",
         "pk": 1,
         "fields": {
-            "name": "Clase 16 Febrero",
-            "description" : "Clase teórica",
+            "name": "Reunión IA",
+            "description" : "Se tiene que discutir como se van a usar las inteligencias artificiales",
             "date":"2024-02-16",
             "time":"2024-02-16 17:50-00:00"
             }
@@ -208,10 +208,10 @@
         "fields" : {
             "name": "Examen Tema 1",
             "description": "Examen del tema 1, 17 febrero",
-            "grade_system": 0,
+            "grade_system": "ZERO_TO_ONE",
             "grade":0.4,
             "date": "2024-02-17",
-            "evaluation_type": 0,
+            "evaluation_type": "DAILY",
             "student": 1,
             "lesson" : 1
             }
@@ -222,10 +222,10 @@
         "fields" : {
             "name": "No estoy contento",
             "description": "No le ha gustado el curso",
-            "grade_system": 2,
+            "grade_system": "ZERO_TO_TEN",
             "grade": 2,
             "date":"2024-02-16",
-            "evaluation_type":1,
+            "evaluation_type":"ANNUAL",
             "lesson":1,
             "family":1
             }
