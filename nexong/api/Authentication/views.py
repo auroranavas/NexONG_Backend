@@ -8,9 +8,6 @@ from .authSerializer import *
 def check_user_is_admin(request):
     user = request.user
     return user.is_staff
-def check_user_is_the_same(request,usergametrail):
-    user = request.user
-    return user.username == usergametrail.username
 
 def check_user_is_authenticated(request):
     user = request.user
