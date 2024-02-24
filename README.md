@@ -36,9 +36,12 @@ _You can check if the database is corrrectly created using `\l` in the psql inst
 ### Migrate the app
 - Migrate the app `./manage.py makemigrations` & `./manage.py migrate` or `manage.py makemigrations` & `manage.py migrate`
 
-## Create superuser
+### Create superuser
 - `./manage.py createsuperuser`
 
 ### Done! now run the app
 - Run the API `./manage.py runserver` or `manage.py runserver`
 - Access to the DEMO API on `http://127.0.0.1:8000/demoapi/`
+
+### Populate the database
+- Populate the database `./manage.py loaddata populate.json` or `manage.py loaddata populate.json`
