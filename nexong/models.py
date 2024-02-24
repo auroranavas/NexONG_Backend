@@ -119,15 +119,6 @@ class Volunteer(models.Model):
     scanned_volunteer_id = models.FileField()
     minor_authorization = models.FileField()
     scanned_authorizer_id = models.FileField()
-    
-    
-
-
-class Meeting(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=1000)
-    date = models.DateField(blank = True)
-    time = models.DateTimeField(blank = True)
 
 class Class(models.Model):
     name = models.CharField(max_length=100)
@@ -198,11 +189,6 @@ class Centre_Exit(models.Model):
     authorization = models.CharField(max_length=100)
     responsible=models.CharField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-
-class User_Has_Meeting(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE)
     
 class User_Has_Class(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -243,3 +229,10 @@ class Event(models.Model):
     end_date=models.DateTimeField(blank=True)
     lesson = models.ForeignKey(Class, on_delete=models.CASCADE, null = True, blank = True) 
     educators = models.ManyToManyField(User) 
+
+class Meeting(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=1000)
+    date = models.DateField(blank = True)
+    time = models.DateTimeField(blank = True)
+    students = models.ManyToManyField(User, blank=True)
