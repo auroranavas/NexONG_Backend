@@ -5,12 +5,10 @@ from nexong.models import Meeting
 
 
 class MeetingSerializer(ModelSerializer):
-    students = serializers.PrimaryKeyRelatedField(
-        many=True, 
-        queryset=User.objects.filter(student__isnull=False)
+    attendees = serializers.PrimaryKeyRelatedField(
+        many=True, queryset=User.objects.filter(student__isnull=False)
     )
 
     class Meta:
         model = Meeting
-        fields = ['name','description','date','time','students']
-
+        fields = ["name", "description", "date", "time", "attendees"]
