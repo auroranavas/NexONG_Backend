@@ -6,7 +6,7 @@ from .eventSerializer import EventSerializer
 from .. import permissions
 
 
-class MeetingApiViewSet(ModelViewSet):
+class EventApiViewSet(ModelViewSet):
     queryset = Event.objects.all()
     http_method_names = ["get", "post", "put", "delete"]
     serializer_class = EventSerializer
