@@ -135,16 +135,6 @@ class Class(models.Model):
     capacity=models.IntegerField(validators=[
         MinValueValidator(0)], blank=True)
 
-class Event(models.Model):
-    name=models.CharField(max_length=100)
-    description=models.CharField(max_length=1000)
-    place=models.CharField(max_length=1000)
-    capacity=models.IntegerField(default= 0, validators=[MinValueValidator(0)])
-    max_volunteers=models.IntegerField(validators=[MinValueValidator(0)])
-    start_date=models.DateTimeField(blank=True)
-    end_date=models.DateTimeField(blank=True)
-    lesson = models.ForeignKey(Class, on_delete=models.CASCADE, null = True, blank = True) 
-
 class Evaluation(models.Model):
     name = models.CharField(max_length=100)
     description=models.CharField(max_length=1000)
@@ -214,10 +204,6 @@ class User_Has_Meeting(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE)
     
-class User_Event(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
-
 class User_Has_Class(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
@@ -246,3 +232,14 @@ class User_Has_Evaluation(models.Model):
     user_educator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_evaluator')
     user_evaluated = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_evaluated')
     lesson = models.ForeignKey(Class, on_delete=models.CASCADE)
+
+class Event(models.Model):
+    name=models.CharField(max_length=100)
+    description=models.CharField(max_length=1000)
+    place=models.CharField(max_length=1000)
+    capacity=models.IntegerField(default= 0, validators=[MinValueValidator(0)])
+    max_volunteers=models.IntegerField(validators=[MinValueValidator(0)])
+    start_date=models.DateTimeField(blank=True)
+    end_date=models.DateTimeField(blank=True)
+    lesson = models.ForeignKey(Class, on_delete=models.CASCADE, null = True, blank = True) 
+    educators = models.ManyToManyField(User) 
