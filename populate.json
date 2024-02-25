@@ -253,6 +253,14 @@
         }
     },
     {
+        "model": "nexong.event_educators",
+        "pk": 1,
+        "fields" : {
+            "event":1,
+            "educator":1
+        }
+    },
+    {
         "model": "nexong.centerexitauthorization",
         "pk": 1,
         "fields": {

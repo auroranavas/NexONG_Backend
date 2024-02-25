@@ -258,6 +258,7 @@ class Event(models.Model):
     end_date = models.DateTimeField(blank=True)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, null=True, blank=True)
     attendees = models.ManyToManyField(User, related_name="events")
+    educators = models.ManyToManyField(Educator, related_name="events")
 
 
 class CenterExitAuthorization(models.Model):
