@@ -1,0 +1,265 @@
+[   
+    {
+        "model": "nexong.family",
+        "pk": 1,
+        "fields": {
+            "name": "Familia Enriquez"
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 1,
+        "fields" : {
+            "name": "Emilio",
+            "surname" : "Enriquez",
+            "education_center": "Doctrina",
+            "current_education_year": "FOURTH_SECONDARY",
+            "education_center_tutor": "Palomino",
+            "enrollment_document": null,
+            "scanned_sanitary_card": null,
+            "nationality" : "España",
+            "birthdate" : "2008-04-13",
+            "family":1
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 2,
+        "fields" : {
+            "name": "Josan",
+            "surname" : "Enriquez",
+            "education_center": "Doctrina",
+            "current_education_year": "THIRD_PRIMARY",
+            "education_center_tutor": "Palomino",
+            "enrollment_document": null,
+            "scanned_sanitary_card": null,
+            "nationality" : "España",
+            "birthdate" : "2015-08-02",
+            "family":1
+        }
+    },
+    {
+        "model": "nexong.partner",
+        "pk": 1,
+        "fields": {
+            "holder": "Santander",
+            "iban" : "NL86ABNA6733307944",
+            "quantity": 38,
+            "frequency": "MENSUAL",
+            "address": "Sevilla Adentros 32",
+            "enrollment_document":null,
+            "quota_extension_document": null,
+            "birthdate": "1995-11-22"
+            }
+    },
+    {
+        "model": "nexong.volunteer",
+        "pk": 1,
+        "fields": {
+            "academic_formation": "Bachiller",
+            "motivation" : "Ayudar niños",
+            "status":0,
+            "address": "Sevilla Amedias 40",
+            "postal_code": 41220,
+            "enrollment_document" : null,
+            "registry_sheet": null,
+            "sexual_offenses_document": null,
+            "scanned_id": null,
+            "minor_authorization": null,
+            "scanned_authorizer_id": null,
+            "birthdate" : "1995-11-22",
+            "start_date": "2019-06-23",
+            "end_date": null
+            }
+    },
+    {
+        "model": "nexong.educator",
+        "pk": 1,
+        "fields" : {
+            "birthdate": "1965-08-02"
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 1,
+        "fields": {
+            "name": "Palomino",
+            "surname" : "Vergara",
+            "id_number" : "57935784A",
+            "phone" : 605234354,
+            "role": "EDUCATOR",
+            "password": "profesol",
+            "email": "palomino@gmail.com",
+            "avatar": "https://avatars.githubusercontent.com/u/43956",
+            "family":null,
+            "partner":null,
+            "volunteer":null,
+            "educator":1,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 2,
+        "fields": {
+            "name": "Voluntario",
+            "surname" : "Voluptas",
+            "id_number" : "57925784A",
+            "phone" : 605233333,
+            "role": "VOLUNTEER",
+            "password": "volutalio",
+            "email": "voluntario@gmail.com",
+            "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
+            "family":null,
+            "partner":null,
+            "volunteer":1,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 3,
+        "fields": {
+            "name": "Socio",
+            "surname" : "Socales",
+            "id_number" : "57123784T",
+            "phone" : 666666999,
+            "role": "PARTNER",
+            "password": "parnerio",
+            "email": "socio@gmail.com",
+            "avatar": "https://media.istockphoto.com/id/1342067848/photo/excited-african-guy-showing-dollar-money-cash-over-blue-background.jpg?s=612x612&w=0&k=20&c=7GW75apTo16dxHA1tXwoFaFmFshAHDaLhu2fOyJq1BI=",
+            "family":null,
+            "partner":1,
+            "volunteer":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 4,
+        "fields": {
+            "name": "Padre",
+            "surname" : "Enriquez",
+            "id_number" : "85933958G",
+            "phone" : 596748302,
+            "role": "FAMILY",
+            "password": "papa",
+            "email": "padre@gmail.com",
+            "avatar": "https://images.hola.com/images/027f-178e051fb317-8ce95081f1b5-1000/horizontal-1200/padre-e-hijo.jpg",
+            "family":1,
+            "partner":null,
+            "volunteer":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.meeting",
+        "pk": 1,
+        "fields": {
+            "name": "Reunión IA",
+            "description" : "Se tiene que discutir como se van a usar las inteligencias artificiales",
+            "date":"2024-02-16",
+            "time":"2024-02-16 17:50-00:00"
+            }
+    },
+    {
+        "model": "nexong.meeting_attendees",
+        "pk": 1,
+        "fields": {
+            "partner": 1,
+            "meeting" : 1
+            }
+    },
+    {
+        "model": "nexong.comment",
+        "pk": 1,
+        "fields": {
+            "text" : "Es mi hermano y le tolero",
+            "created_at": "2023-08-02:09:12-00:00",
+            "commenter": 1,
+            "commentee": 2
+            }
+    },
+    {
+        "model": "nexong.lesson",
+        "pk": 1,
+        "fields" : {
+            "name": "Soft Computing",
+            "description": "Módulo I, segunda planta",
+            "capacity": 50,
+            "is_morning_lesson" : true,
+            "educator" :1
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 1,
+        "fields" : {
+            "lesson":1,
+            "student":1
+            }
+    },
+    {
+        "model": "nexong.studentevaluation",
+        "pk": 1,
+        "fields" : {
+            "name": "Examen Tema 1",
+            "description": "Examen del tema 1, 17 febrero",
+            "grade_system": "ZERO_TO_ONE",
+            "grade":0.4,
+            "date": "2024-02-17",
+            "evaluation_type": "DAILY",
+            "student": 1,
+            "lesson" : 1
+            }
+    },
+    {
+        "model": "nexong.lessonevaluation",
+        "pk": 1,
+        "fields" : {
+            "name": "No estoy contento",
+            "description": "No le ha gustado el curso",
+            "grade_system": "ZERO_TO_TEN",
+            "grade": 2,
+            "date":"2024-02-16",
+            "evaluation_type":"ANNUAL",
+            "lesson":1,
+            "family":1
+            }
+    },
+    {
+        "model": "nexong.event",
+        "pk": 1,
+        "fields" : {
+            "name": "Excursión al Ordenador",
+            "description": "Vamos al centro a ver El Ordenador",
+            "place":"Centro Sevilla",
+            "capacity": 100,
+            "max_volunteers" : 10,
+            "start_date":"2024-02-28 12:00-00:00",
+            "end_date":"2024-02-28 18:00-00:00",
+            "lesson": 1
+            }
+    },
+    {
+        "model": "nexong.event_attendees",
+        "pk": 1,
+        "fields" : {
+            "event":1,
+            "user":1
+        }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 1,
+        "fields": {
+            "authorization": null,
+            "student" : 1,
+            "is_authorized": true,
+            "event":1
+            }
+    }
+]

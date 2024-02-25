@@ -97,8 +97,8 @@ class Student(models.Model):
         max_length=20, choices=CURRENT_EDUCATION_YEAR, default=THREE_YEARS
     )
     education_center_tutor = models.CharField(max_length=255)
-    enrollment_document = models.FileField()
-    scanned_sanitary_card = models.FileField()
+    enrollment_document = models.FileField(upload_to='files/student_enrollment')
+    scanned_sanitary_card = models.FileField(upload_to='files/student_sanitary')
     nationality = models.CharField(max_length=255)
     birthdate = models.DateField()
     family = models.ForeignKey(
@@ -112,8 +112,8 @@ class Partner(models.Model):
     quantity = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     frequency = models.CharField(max_length=11, choices=FRECUENCY, default=MENSUAL)
     address = models.CharField(max_length=255, null=True, blank=True)
-    enrollment_document = models.FileField()
-    quota_extension_document = models.FileField(null=True, blank=True)
+    enrollment_document = models.FileField(upload_to='files/partner_enrollment')
+    quota_extension_document = models.FileField(null=True, blank=True, upload_to='files/partner_quota')
     birthdate = models.DateField(null=True)
 
 
@@ -125,12 +125,12 @@ class Volunteer(models.Model):
     postal_code = models.IntegerField(
         validators=[MinValueValidator(10000), MaxValueValidator(90000)], default=10000
     )
-    enrollment_document = models.FileField()
-    registry_sheet = models.FileField()
-    sexual_offenses_document = models.FileField()
-    scanned_id = models.FileField()
-    minor_authorization = models.FileField(null=True, blank=True)
-    scanned_authorizer_id = models.FileField(null=True, blank=True)
+    enrollment_document = models.FileField(upload_to='files/volunteer_enrollment')
+    registry_sheet = models.FileField(upload_to='files/volunteer_registry')
+    sexual_offenses_document = models.FileField(upload_to='files/volunteer_offenses')
+    scanned_id = models.FileField(upload_to='files/volunteer_id')
+    minor_authorization = models.FileField(null=True, blank=True, upload_to='files/volunteer_minor')
+    scanned_authorizer_id = models.FileField(null=True, blank=True, upload_to='files/volunteer_authorizer_id')
     birthdate = models.DateField()
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
@@ -262,7 +262,7 @@ class Event(models.Model):
 
 
 class CenterExitAuthorization(models.Model):
-    authorization = models.FileField()
+    authorization = models.FileField(upload_to='files/centerexit_auth')
     student = models.ForeignKey(
         Student, on_delete=models.CASCADE, related_name="center_exits"
     )
