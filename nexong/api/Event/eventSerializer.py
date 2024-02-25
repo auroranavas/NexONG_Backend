@@ -6,7 +6,7 @@ from rest_framework.serializers import ModelSerializer
 class EventSerializer(ModelSerializer):
     # attendees is optional at creation
     attendees = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(), required=False
+        queryset=User.objects.all(), many=True, required=False
     )
 
     class Meta:
