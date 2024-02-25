@@ -4,8 +4,9 @@ from rest_framework.serializers import ModelSerializer
 
 
 class EventSerializer(ModelSerializer):
+    # attendees is optional at creation
     attendees = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=User.objects.filter(educator__isnull=False)
+        queryset=User.objects.all(), required=False
     )
 
     class Meta:
@@ -20,11 +21,8 @@ class EventSerializer(ModelSerializer):
             "end_date",
             "lesson",
             "attendees",
+            "educators",
         ]
-
-    def get_attendees(self, obj):
-        attendees = User.objects.filter(educator__isnull=False)
-        return attendees
 
     def validate_educators(self, value):
         if not value:

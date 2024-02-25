@@ -184,7 +184,6 @@ class Meeting(models.Model):
     attendees = models.ManyToManyField(Partner, related_name="meetings_attending")
 
 
-    
 class Comment(models.Model):
     commenter = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="comments_made"
@@ -259,6 +258,7 @@ class Event(models.Model):
     end_date = models.DateTimeField(blank=True)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, null=True, blank=True)
     attendees = models.ManyToManyField(User, related_name="events")
+    educators = models.ManyToManyField(Educator, related_name="events")
 
 
 class CenterExitAuthorization(models.Model):
