@@ -8,10 +8,12 @@ class EventSerializer(ModelSerializer):
     attendees = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all(), many=True, required=False
     )
+    url = serializers.HyperlinkedIdentityField(view_name="event-detail")
 
     class Meta:
         model = Event
         fields = [
+            "id",
             "name",
             "description",
             "place",
@@ -22,6 +24,7 @@ class EventSerializer(ModelSerializer):
             "lesson",
             "attendees",
             "educators",
+            "url",
         ]
 
     def validate_educators(self, value):
