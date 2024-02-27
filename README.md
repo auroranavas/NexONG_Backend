@@ -1,4 +1,4 @@
-[![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_05-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-ISPP-2024-GH-ISPP-G5_NexONG_Backend/main) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1f8b66f6985f491885213d03ba711707)](https://app.codacy.com/gh/ISPP-G5/NexONG_Backend/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_05-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-ISPP-2024-GH-ISPP-G5_NexONG_Backend/main) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1f8b66f6985f491885213d03ba711707)](https://app.codacy.com/gh/ISPP-G5/NexONG_Backend/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # Getting started with NexONG_Backend
 
