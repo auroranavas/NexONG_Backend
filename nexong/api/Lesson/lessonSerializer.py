@@ -11,4 +11,13 @@ class LessonSerializer(ModelSerializer):
 
     class Meta:
         model = Lesson
-        fields = ["id", "name", "description", "capacity", "is_morning_lesson",  "educator","students","url"]
+        fields = [
+            "id",
+            "name",
+            "description",
+            "capacity",
+            "is_morning_lesson",
+            "educator",
+            "students",
+            "url",
+        ]
