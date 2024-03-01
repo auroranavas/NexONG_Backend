@@ -30,7 +30,7 @@ class EducatorGetApiViewSet(ModelViewSet):
 
 
 class EducatorCUDApiViewSet(APIView):
-    http_method_names = ['post', 'put', 'delete']
+    http_method_names = ["post", "put", "delete"]
     serializer_class = EducatorSerializer
 
     def post(self, request, format=None):
