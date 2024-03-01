@@ -32,13 +32,13 @@ class EducatorGetApiViewSet(ModelViewSet):
 class EducatorCUDApiViewSet(APIView):
     serializer_class = EducatorSerializer
 
-    def post(self, request, format=None):
+    def post(self, request):
         serializer = EducatorSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def put(self, request, format=None):
+    def put(self, request):
         try:
             educator = Educator.objects.get(pk=request.data["id"])
         except Educator.DoesNotExist:
@@ -50,7 +50,7 @@ class EducatorCUDApiViewSet(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, format=None):
+    def delete(self, request):
         try:
             educator = Educator.objects.get(pk=request.data["id"])
 
@@ -70,13 +70,13 @@ class PartnerGetApiViewSet(ModelViewSet):
 class PartnerCUDApiViewSet(APIView):
     serializer_class = PartnerSerializer
 
-    def post(self, request, format=None):
+    def post(self, request):
         serializer = PartnerSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def put(self, request, format=None):
+    def put(self, request):
         try:
             partner = Partner.objects.get(pk=request.data["id"])
         except Partner.DoesNotExist:
@@ -88,7 +88,7 @@ class PartnerCUDApiViewSet(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, format=None):
+    def delete(self, request):
         try:
             partner = Partner.objects.get(pk=request.data["id"])
         except Partner.DoesNotExist:
@@ -107,13 +107,13 @@ class VolunteerGetApiViewSet(ModelViewSet):
 class VolunteerCUDApiViewSet(APIView):
     serializer_class = VolunteerSerializer
 
-    def post(self, request, format=None):
+    def post(self, request):
         serializer = VolunteerSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def put(self, request, format=None):
+    def put(self, request):
         try:
             volunteer = Volunteer.objects.get(pk=request.data["id"])
         except Volunteer.DoesNotExist:
@@ -125,7 +125,7 @@ class VolunteerCUDApiViewSet(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, format=None):
+    def delete(self, request):
         try:
             volunteer = Volunteer.objects.get(pk=request.data["id"])
         except Volunteer.DoesNotExist:
@@ -144,13 +144,13 @@ class FamilyGetApiViewSet(ModelViewSet):
 class FamilyCUDApiViewSet(APIView):
     serializer_class = FamilySerializer
 
-    def post(self, request, format=None):
+    def post(self, request):
         serializer = FamilySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def put(self, request, format=None):
+    def put(self, request):
         try:
             family = Family.objects.get(pk=request.data["id"])
         except Family.DoesNotExist:
@@ -162,7 +162,7 @@ class FamilyCUDApiViewSet(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, format=None):
+    def delete(self, request):
         try:
             family = Family.objects.get(pk=request.data["id"])
         except Family.DoesNotExist:
