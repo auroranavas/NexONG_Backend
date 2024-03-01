@@ -30,7 +30,6 @@ class EducatorGetApiViewSet(ModelViewSet):
 
 
 class EducatorCUDApiViewSet(APIView):
-
     serializer_class = EducatorSerializer
 
     def post(self, request, format=None):
