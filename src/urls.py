@@ -9,6 +9,5 @@ urlpatterns = [
     path("api/educator", EducatorCUDApiViewSet.as_view()),
     path("api/volunteer", VolunteerCUDApiViewSet.as_view()),
     path("api/partner", PartnerCUDApiViewSet.as_view()),
-    path("api/family", FamilyCUDApiViewSet.as_view())
-      
-      ]
+    path("api/family", FamilyCUDApiViewSet.as_view()),
+]
