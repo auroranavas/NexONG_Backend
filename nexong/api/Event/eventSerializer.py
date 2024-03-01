@@ -42,9 +42,9 @@ class EventSerializer(ModelSerializer):
         num_attendees = attendees_qs.all().count()
         max_capacity = attrs.get("capacity")
         if max_capacity < num_attendees:
-            validation_error["capacity"] = (
-                "The max capacity must be higher or equal to the number of attendees selected."
-            )
+            validation_error[
+                "capacity"
+            ] = "The max capacity must be higher or equal to the number of attendees selected."
 
         start_date = attrs.get("start_date")
         if start_date <= datetime.now(timezone.utc):
@@ -60,9 +60,9 @@ class EventSerializer(ModelSerializer):
         max_volunteers = attrs.get("max_volunteers")
 
         if max_volunteers < num_volunteers:
-            validation_error["max_volunteers"] = (
-                "The max number of volunteers must be higher or equal to the number of volunteers selected."
-            )
+            validation_error[
+                "max_volunteers"
+            ] = "The max number of volunteers must be higher or equal to the number of volunteers selected."
 
         if validation_error:
             raise serializers.ValidationError(validation_error)
