@@ -7,18 +7,39 @@
             }
     },
     {
+        "model": "nexong.family",
+        "pk": 2,
+        "fields": {
+            "name": "Familia Teresa"
+            }
+    },
+    {
+        "model": "nexong.family",
+        "pk": 3,
+        "fields": {
+            "name": "Familia Wawer"
+            }
+    },
+    {
+        "model": "nexong.family",
+        "pk": 4,
+        "fields": {
+            "name": "Familia Soltero"
+            }
+    },
+    {
         "model": "nexong.student",
         "pk": 1,
         "fields" : {
             "name": "Emilio",
             "surname" : "Enriquez",
             "education_center": "Doctrina",
-            "current_education_year": "FOURTH_SECONDARY",
-            "education_center_tutor": "Palomino",
-            "enrollment_document": null,
-            "scanned_sanitary_card": null,
+            "current_education_year": "THREE_YEARS",
+            "education_center_tutor": "Francisco Ibañez",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
             "nationality" : "España",
-            "birthdate" : "2008-04-13",
+            "birthdate" : "2021-04-13",
             "family":1
             }
     },
@@ -26,30 +47,169 @@
         "model": "nexong.student",
         "pk": 2,
         "fields" : {
-            "name": "Josan",
+            "name": "Jajuto",
             "surname" : "Enriquez",
             "education_center": "Doctrina",
-            "current_education_year": "THIRD_PRIMARY",
-            "education_center_tutor": "Palomino",
-            "enrollment_document": null,
-            "scanned_sanitary_card": null,
+            "current_education_year": "FOURTH_PRIMARY",
+            "education_center_tutor": "Francisco Ibañez",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
             "nationality" : "España",
-            "birthdate" : "2015-08-02",
+            "birthdate" : "2014-11-22",
             "family":1
-        }
+            }
     },
+    {
+        "model": "nexong.student",
+        "pk": 3,
+        "fields" : {
+            "name": "Enjuto",
+            "surname" : "Mojamuto",
+            "education_center": "Claret",
+            "current_education_year": "THREE_YEARS",
+            "education_center_tutor": "Hulk Hogan",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
+            "nationality" : "Francia",
+            "birthdate" : "2021-5-12",
+            "family":2
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 4,
+        "fields" : {
+            "name": "Adoptada Uno",
+            "surname" : "De La Calle",
+            "education_center": "Claret",
+            "current_education_year": "SECOND_SECONDARY",
+            "education_center_tutor": "Hulk Hogan",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
+            "nationality" : "España",
+            "birthdate" : "2010-2-17",
+            "family":2
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 5,
+        "fields" : {
+            "name": "Adoptada Dos",
+            "surname" : "De La Calle",
+            "education_center": "Claret",
+            "current_education_year": "SECOND_SECONDARY",
+            "education_center_tutor": "Hulk Hogan",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
+            "nationality" : "España",
+            "birthdate" : "2010-2-17",
+            "family":2
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 6,
+        "fields" : {
+            "name": "Harrier",
+            "surname" : "Du Bois",
+            "education_center": "Doctrina",
+            "current_education_year": "FOUR_YEARS",
+            "education_center_tutor": "Francisco Ibañez",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
+            "nationality" : "España",
+            "birthdate" : "2020-1-1",
+            "family":3
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 7,
+        "fields" : {
+            "name": "Kim",
+            "surname" : "Wawer",
+            "education_center": "Doctrina",
+            "current_education_year": "SIXTH_PRIMARY",
+            "education_center_tutor": "Francisco Ibañez",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
+            "nationality" : "España",
+            "birthdate" : "2012-10-21",
+            "family":3
+            }
+    },
+    {
+        "model": "nexong.student",
+        "pk": 8,
+        "fields" : {
+            "name": "Evrart",
+            "surname" : "Soltero",
+            "education_center": "Claret",
+            "current_education_year": "SIXTH_PRIMARY",
+            "education_center_tutor": "Hulk Hogan",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
+            "nationality" : "España",
+            "birthdate" : "2012-9-21",
+            "family":4
+            }
+    },
+    
     {
         "model": "nexong.partner",
         "pk": 1,
         "fields": {
-            "holder": "Santander",
-            "iban" : "NL86ABNA6733307944",
-            "quantity": 38,
+            "holder": "MANRIQUE DINERO",
+            "iban" : "ES7614656137308238282572",
+            "quantity": 12,
+            "frequency": "ANUAL",
+            "address": "Insulinde 11",
+            "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
+            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
+            "birthdate": "1956-07-05"
+            }
+    },
+    {
+        "model": "nexong.partner",
+        "pk": 2,
+        "fields": {
+            "holder": "FRANCISCO ASOCIADO",
+            "iban" : "ES5731903988473184326598",
+            "quantity": 65,
             "frequency": "MENSUAL",
-            "address": "Sevilla Adentros 32",
-            "enrollment_document":null,
-            "quota_extension_document": null,
-            "birthdate": "1995-11-22"
+            "address": "Katia 13",
+            "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
+            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
+            "birthdate": "1973-03-05"
+            }
+    },
+    {
+        "model": "nexong.partner",
+        "pk": 3,
+        "fields": {
+            "holder": "SOFÍA VERGARA",
+            "iban" : "ES2104872956123218423845",
+            "quantity": 98,
+            "frequency": "QUARTERLY",
+            "address": "Graad 26",
+            "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
+            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
+            "birthdate": "1981-01-23"
+            }
+    },
+    {
+        "model": "nexong.partner",
+        "pk": 4,
+        "fields": {
+            "holder": "STEFANI JOANNE ANGELINA GERMANOTTA",
+            "iban" : "ES7704875667823641839789",
+            "quantity": 1045,
+            "frequency": "SIXMONTHLY",
+            "address": "Ilinaara 48",
+            "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
+            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
+            "birthdate": "1986-03-28"
             }
     },
     {
@@ -57,19 +217,119 @@
         "pk": 1,
         "fields": {
             "academic_formation": "Bachiller",
-            "motivation" : "Ayudar niños",
-            "status":0,
-            "address": "Sevilla Amedias 40",
-            "postal_code": 41220,
-            "enrollment_document" : null,
-            "registry_sheet": null,
-            "sexual_offenses_document": null,
-            "scanned_id": null,
-            "minor_authorization": null,
-            "scanned_authorizer_id": null,
+            "motivation" : "Mi padre es voluntario",
+            "status":"ACCEPTED",
+            "address": "Rue de Saint-Ghislain 2",
+            "postal_code": 33317,
+            "enrollment_document" : "NexONG_Backend\\files\\volunteer_enrollment\\volunteer_enrollment.txt",
+            "registry_sheet": "NexONG_Backend\\files\\volunteer_registry\\volunteer_registry.txt",
+            "sexual_offenses_document": "NexONG_Backend\\files\\volunteer_offenses\\volunteer_offenses.txt",
+            "scanned_id": "NexONG_Backend\\files\\volunteer_id\\volunteer_id.txt",
+            "minor_authorization": "NexONG_Backend\\files\\volunteer_minor\\volunteer_minor.txt",
+            "scanned_authorizer_id": "NexONG_Backend\\files\\volunteer_authorizer\\volunteer_authorizer.txt",
             "birthdate" : "1995-11-22",
-            "start_date": "2019-06-23",
+            "start_date": "2024-01-23",
             "end_date": null
+            }
+    },
+    {
+        "model": "nexong.volunteer",
+        "pk": 2,
+        "fields": {
+            "academic_formation": "Secundaria",
+            "motivation" : "Ayudar niños",
+            "status":"ACCEPTED",
+            "address": "Rue de Saint-Ghislain 2",
+            "postal_code": 33317,
+            "enrollment_document" : "NexONG_Backend\\files\\volunteer_enrollment\\volunteer_enrollment.txt",
+            "registry_sheet": "NexONG_Backend\\files\\volunteer_registry\\volunteer_registry.txt",
+            "sexual_offenses_document": "NexONG_Backend\\files\\volunteer_offenses\\volunteer_offenses.txt",
+            "scanned_id": "NexONG_Backend\\files\\volunteer_id\\volunteer_id.txt",
+            "minor_authorization": "NexONG_Backend\\files\\volunteer_minor\\volunteer_minor.txt",
+            "scanned_authorizer_id": "NexONG_Backend\\files\\volunteer_authorizer\\volunteer_authorizer.txt",
+            "birthdate" : "1942-06-11",
+            "start_date": "2020-02-12",
+            "end_date": null
+            }
+    },
+    {
+        "model": "nexong.volunteer",
+        "pk": 3,
+        "fields": {
+            "academic_formation": "Primaria",
+            "motivation" : "Invitan a comer de vez en cuando",
+            "status":"ACCEPTED",
+            "address": "Martinaise 4",
+            "postal_code": 24191,
+            "enrollment_document" : "NexONG_Backend\\files\\volunteer_enrollment\\volunteer_enrollment.txt",
+            "registry_sheet": "NexONG_Backend\\files\\volunteer_registry\\volunteer_registry.txt",
+            "sexual_offenses_document": "NexONG_Backend\\files\\volunteer_offenses\\volunteer_offenses.txt",
+            "scanned_id": "NexONG_Backend\\files\\volunteer_id\\volunteer_id.txt",
+            "minor_authorization": "NexONG_Backend\\files\\volunteer_minor\\volunteer_minor.txt",
+            "scanned_authorizer_id": "NexONG_Backend\\files\\volunteer_authorizer\\volunteer_authorizer.txt",
+            "birthdate" : "1973-03-05",
+            "start_date": "2017-06-18",
+            "end_date": null
+            }
+    },
+    {
+        "model": "nexong.volunteer",
+        "pk": 4,
+        "fields": {
+            "academic_formation": "Ninguna",
+            "motivation" : "Soy muy buena persona",
+            "status":"PENDING",
+            "address": "Sanara 1",
+            "postal_code": 17769,
+            "enrollment_document" : "NexONG_Backend\\files\\volunteer_enrollment\\volunteer_enrollment.txt",
+            "registry_sheet": "NexONG_Backend\\files\\volunteer_registry\\volunteer_registry.txt",
+            "sexual_offenses_document": "NexONG_Backend\\files\\volunteer_offenses\\volunteer_offenses.txt",
+            "scanned_id": "NexONG_Backend\\files\\volunteer_id\\volunteer_id.txt",
+            "minor_authorization": "NexONG_Backend\\files\\volunteer_minor\\volunteer_minor.txt",
+            "scanned_authorizer_id": "NexONG_Backend\\files\\volunteer_authorizer\\volunteer_authorizer.txt",
+            "birthdate" : "1988-08-15",
+            "start_date": "2013-08-26",
+            "end_date": null
+            }
+    },
+    {
+        "model": "nexong.volunteer",
+        "pk": 5,
+        "fields": {
+            "academic_formation": "Bachiller",
+            "motivation" : "Soy muy mala persona",
+            "status":"REJECTED",
+            "address": "Seol 8",
+            "postal_code": 18304,
+            "enrollment_document" : "NexONG_Backend\\files\\volunteer_enrollment\\volunteer_enrollment.txt",
+            "registry_sheet": "NexONG_Backend\\files\\volunteer_registry\\volunteer_registry.txt",
+            "sexual_offenses_document": "NexONG_Backend\\files\\volunteer_offenses\\volunteer_offenses.txt",
+            "scanned_id": "NexONG_Backend\\files\\volunteer_id\\volunteer_id.txt",
+            "minor_authorization": "NexONG_Backend\\files\\volunteer_minor\\volunteer_minor.txt",
+            "scanned_authorizer_id": "NexONG_Backend\\files\\volunteer_authorizer\\volunteer_authorizer.txt",
+            "birthdate" : "1971-05-13",
+            "start_date": "2015-04-08",
+            "end_date": null
+            }
+    },
+    {
+        "model": "nexong.volunteer",
+        "pk": 6,
+        "fields": {
+            "academic_formation": "Bachiller",
+            "motivation" : "Me gustan los niños pero puede que me vaya",
+            "status":"ACCEPTED",
+            "address": "Seol 9",
+            "postal_code": 18304,
+            "enrollment_document" : "NexONG_Backend\\files\\volunteer_enrollment\\volunteer_enrollment.txt",
+            "registry_sheet": "NexONG_Backend\\files\\volunteer_registry\\volunteer_registry.txt",
+            "sexual_offenses_document": "NexONG_Backend\\files\\volunteer_offenses\\volunteer_offenses.txt",
+            "scanned_id": "NexONG_Backend\\files\\volunteer_id\\volunteer_id.txt",
+            "minor_authorization": "NexONG_Backend\\files\\volunteer_minor\\volunteer_minor.txt",
+            "scanned_authorizer_id": "NexONG_Backend\\files\\volunteer_authorizer\\volunteer_authorizer.txt",
+            "birthdate" : "1971-05-13",
+            "start_date": "2015-04-08",
+            "end_date": "2023-11-12"
             }
     },
     {
@@ -77,6 +337,13 @@
         "pk": 1,
         "fields" : {
             "birthdate": "1965-08-02"
+            }
+    },
+    {
+        "model": "nexong.educator",
+        "pk": 2,
+        "fields" : {
+            "birthdate": "1987-07-30"
             }
     },
     {
@@ -88,7 +355,7 @@
             "id_number" : "57935784A",
             "phone" : 605234354,
             "role": "EDUCATOR",
-            "password": "profesol",
+            "password": "profesol1",
             "email": "palomino@gmail.com",
             "avatar": "https://avatars.githubusercontent.com/u/43956",
             "family":null,
@@ -102,13 +369,32 @@
         "model": "nexong.user",
         "pk": 2,
         "fields": {
-            "name": "Voluntario",
+            "name": "Estrella",
+            "surname" : "Bonafila",
+            "id_number" : "69899998D",
+            "phone" : 644228657,
+            "role": "EDUCATOR",
+            "password": "profesol2",
+            "email": "estrellabo@gmail.com",
+            "avatar": "https://avatars.githubusercontent.com/u/43956",
+            "family":null,
+            "partner":null,
+            "volunteer":null,
+            "educator":2,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 3,
+        "fields": {
+            "name": "Reciente",
             "surname" : "Voluptas",
             "id_number" : "57925784A",
             "phone" : 605233333,
             "role": "VOLUNTEER",
-            "password": "volutalio",
-            "email": "voluntario@gmail.com",
+            "password": "volutalio1",
+            "email": "recientev@gmail.com",
             "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
             "family":null,
             "partner":null,
@@ -119,15 +405,110 @@
     },
     {
         "model": "nexong.user",
-        "pk": 3,
+        "pk": 4,
         "fields": {
-            "name": "Socio",
-            "surname" : "Socales",
+            "name": "Anciano",
+            "surname" : "Voluptas",
+            "id_number" : "58673211F",
+            "phone" : 654938475,
+            "role": "VOLUNTEER",
+            "password": "volutalio2",
+            "email": "ancianov@gmail.com",
+            "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
+            "family":null,
+            "partner":null,
+            "volunteer":2,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 5,
+        "fields": {
+            "name": "Verificado",
+            "surname" : "Fernandez",
+            "id_number" : "84756982W",
+            "phone" : 699448732,
+            "role": "VOLUNTEER",
+            "password": "volutalio3",
+            "email": "verificadof@gmail.com",
+            "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
+            "family":null,
+            "partner":null,
+            "volunteer":3,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 6,
+        "fields": {
+            "name": "Pendiente",
+            "surname" : "Indecisez",
+            "id_number" : "11660496S",
+            "phone" : 699229933,
+            "role": "VOLUNTEER",
+            "password": "volutalio4",
+            "email": "pendientei@gmail.com",
+            "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
+            "family":null,
+            "partner":null,
+            "volunteer":4,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 7,
+        "fields": {
+            "name": "Rechazos",
+            "surname" : "Jimenez",
+            "id_number" : "22339846Y",
+            "phone" : 600223958,
+            "role": "VOLUNTEER",
+            "password": "volutalio5",
+            "email": "rechazado@gmail.com",
+            "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
+            "family":null,
+            "partner":null,
+            "volunteer":5,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 8,
+        "fields": {
+            "name": "Desquicio",
+            "surname" : "Hidalgo",
+            "id_number" : "99334485R",
+            "phone" : 666992343,
+            "role": "VOLUNTEER",
+            "password": "volutalio6",
+            "email": "desquicioh@gmail.com",
+            "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
+            "family":null,
+            "partner":null,
+            "volunteer":6,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 9,
+        "fields": {
+            "name": "Manrique",
+            "surname" : "Dinero",
             "id_number" : "57123784T",
-            "phone" : 666666999,
+            "phone" : 604893860,
             "role": "PARTNER",
-            "password": "parnerio",
-            "email": "socio@gmail.com",
+            "password": "parnerio1",
+            "email": "mandinero@gmail.com",
             "avatar": "https://media.istockphoto.com/id/1342067848/photo/excited-african-guy-showing-dollar-money-cash-over-blue-background.jpg?s=612x612&w=0&k=20&c=7GW75apTo16dxHA1tXwoFaFmFshAHDaLhu2fOyJq1BI=",
             "family":null,
             "partner":1,
@@ -138,17 +519,131 @@
     },
     {
         "model": "nexong.user",
-        "pk": 4,
+        "pk": 10,
+        "fields": {
+            "name": "Francisco",
+            "surname" : "Asociado",
+            "id_number" : "29584723P",
+            "phone" : 603867312,
+            "role": "PARTNER",
+            "password": "parnerio2",
+            "email": "frasociado@gmail.com",
+            "avatar": "https://media.istockphoto.com/id/1342067848/photo/excited-african-guy-showing-dollar-money-cash-over-blue-background.jpg?s=612x612&w=0&k=20&c=7GW75apTo16dxHA1tXwoFaFmFshAHDaLhu2fOyJq1BI=",
+            "family":null,
+            "partner":2,
+            "volunteer":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 11,
+        "fields": {
+            "name": "Sofía",
+            "surname" : "Vergara",
+            "id_number" : "98399384L",
+            "phone" : 63212452,
+            "role": "PARTNER",
+            "password": "parnerio3",
+            "email": "sofiver@gmail.com",
+            "avatar": "https://media.istockphoto.com/id/1342067848/photo/excited-african-guy-showing-dollar-money-cash-over-blue-background.jpg?s=612x612&w=0&k=20&c=7GW75apTo16dxHA1tXwoFaFmFshAHDaLhu2fOyJq1BI=",
+            "family":null,
+            "partner":3,
+            "volunteer":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 12,
+        "fields": {
+            "name": "Angelina",
+            "surname" : "Germanotta",
+            "id_number" : "94838877S",
+            "phone" : 690847362,
+            "role": "PARTNER",
+            "password": "parnerio4",
+            "email": "ladygg@gmail.com",
+            "avatar": "https://media.istockphoto.com/id/1342067848/photo/excited-african-guy-showing-dollar-money-cash-over-blue-background.jpg?s=612x612&w=0&k=20&c=7GW75apTo16dxHA1tXwoFaFmFshAHDaLhu2fOyJq1BI=",
+            "family":null,
+            "partner":4,
+            "volunteer":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 13,
         "fields": {
             "name": "Padre",
             "surname" : "Enriquez",
             "id_number" : "85933958G",
             "phone" : 596748302,
             "role": "FAMILY",
-            "password": "papa",
-            "email": "padre@gmail.com",
+            "password": "familia1",
+            "email": "padree@gmail.com",
             "avatar": "https://images.hola.com/images/027f-178e051fb317-8ce95081f1b5-1000/horizontal-1200/padre-e-hijo.jpg",
             "family":1,
+            "partner":null,
+            "volunteer":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 14,
+        "fields": {
+            "name": "Madre",
+            "surname" : "Teresa",
+            "id_number" : "19993875L",
+            "phone" : 99332763,
+            "role": "FAMILY",
+            "password": "familia2",
+            "email": "madret@gmail.com",
+            "avatar": "https://images.hola.com/images/027f-178e051fb317-8ce95081f1b5-1000/horizontal-1200/padre-e-hijo.jpg",
+            "family":2,
+            "partner":null,
+            "volunteer":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 15,
+        "fields": {
+            "name": "Acogeniños",
+            "surname" : "Wawer",
+            "id_number" : "43434325B",
+            "phone" : 667695958,
+            "role": "FAMILY",
+            "password": "familia3",
+            "email": "acogedor@gmail.com",
+            "avatar": "https://images.hola.com/images/027f-178e051fb317-8ce95081f1b5-1000/horizontal-1200/padre-e-hijo.jpg",
+            "family":3,
+            "partner":null,
+            "volunteer":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 16,
+        "fields": {
+            "name": "Miembro",
+            "surname" : "Soltero",
+            "id_number" : "85922339G",
+            "phone" : 688899953,
+            "role": "FAMILY",
+            "password": "familia4",
+            "email": "miembros@gmail.com",
+            "avatar": "https://images.hola.com/images/027f-178e051fb317-8ce95081f1b5-1000/horizontal-1200/padre-e-hijo.jpg",
+            "family":4,
             "partner":null,
             "volunteer":null,
             "educator":null,
@@ -160,9 +655,19 @@
         "pk": 1,
         "fields": {
             "name": "Reunión IA",
-            "description" : "Se tiene que discutir como se van a usar las inteligencias artificiales",
+            "description" : "Se tiene que discutir como se van a usar las inteligencias artificiales. Solo deben venir los que aportan cada año o seis meses",
             "date":"2024-02-16",
             "time":"2024-02-16 17:50-00:00"
+            }
+    },
+    {
+        "model": "nexong.meeting",
+        "pk": 2,
+        "fields": {
+            "name": "Reunión general",
+            "description" : "Todos los socios deben venir.",
+            "date":"2024-06-23",
+            "time":"2024-06-23 03:34-00:00"
             }
     },
     {
@@ -174,13 +679,63 @@
             }
     },
     {
+        "model": "nexong.meeting_attendees",
+        "pk": 2,
+        "fields": {
+            "partner": 2,
+            "meeting" : 1
+            }
+    },
+    {
+        "model": "nexong.meeting_attendees",
+        "pk": 3,
+        "fields": {
+            "partner": 1,
+            "meeting" : 2
+            }
+    },
+    {
+        "model": "nexong.meeting_attendees",
+        "pk": 4,
+        "fields": {
+            "partner": 2,
+            "meeting" : 2
+            }
+    },
+    {
+        "model": "nexong.meeting_attendees",
+        "pk": 5,
+        "fields": {
+            "partner": 3,
+            "meeting" : 2
+            }
+    },
+    {
+        "model": "nexong.meeting_attendees",
+        "pk": 6,
+        "fields": {
+            "partner": 4,
+            "meeting" : 2
+            }
+    },
+    {
         "model": "nexong.comment",
         "pk": 1,
         "fields": {
-            "text" : "Es mi hermano y le tolero",
-            "created_at": "2023-08-02:09:12-00:00",
+            "text" : "Es un honor trabajar con un miembro tan respetable como usted. ¡Feliz cumpleaños!",
+            "created_at": "2023-08-02 10:09:12-00:00",
             "commenter": 1,
             "commentee": 2
+            }
+    },
+    {
+        "model": "nexong.comment",
+        "pk": 2,
+        "fields": {
+            "text" : "Creo que esta socia es una famosa, pero no estoy seguro",
+            "created_at": "2024-11-4 10:11:27-00:00",
+            "commenter": 3,
+            "commentee": 12
             }
     },
     {
@@ -189,17 +744,154 @@
         "fields" : {
             "name": "Soft Computing",
             "description": "Módulo I, segunda planta",
-            "capacity": 50,
+            "capacity": 4,
+            "is_morning_lesson" : true,
+            "educator" :2
+            }
+    },
+    {
+        "model": "nexong.lesson",
+        "pk": 2,
+        "fields" : {
+            "name": "Literatura india",
+            "description": "Hace falta traer tu propio bolígrafo",
+            "capacity": 40,
+            "is_morning_lesson" : false,
+            "educator" :1
+            }
+    },
+    {
+        "model": "nexong.lesson",
+        "pk": 3,
+        "fields" : {
+            "name": "Física para peques",
+            "description": "No traer calculadoras",
+            "capacity": 10,
             "is_morning_lesson" : true,
             "educator" :1
+            }
+    },
+    {
+        "model": "nexong.lesson",
+        "pk": 4,
+        "fields" : {
+            "name": "Autocontención",
+            "description": "Silencio absoluto",
+            "capacity": 50,
+            "is_morning_lesson" : true,
+            "educator" :2
             }
     },
     {
         "model": "nexong.lesson_students",
         "pk": 1,
         "fields" : {
-            "lesson":1,
+            "lesson":3,
             "student":1
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 2,
+        "fields" : {
+            "lesson":2,
+            "student":2
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 3,
+        "fields" : {
+            "lesson":3,
+            "student":3
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 4,
+        "fields" : {
+            "lesson":1,
+            "student":4
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 5,
+        "fields" : {
+            "lesson":1,
+            "student":5
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 6,
+        "fields" : {
+            "lesson":3,
+            "student":6
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 7,
+        "fields" : {
+            "lesson":2,
+            "student":7
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 8,
+        "fields" : {
+            "lesson":2,
+            "student":8
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 9,
+        "fields" : {
+            "lesson":4,
+            "student":1
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 11,
+        "fields" : {
+            "lesson":4,
+            "student":2
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 12,
+        "fields" : {
+            "lesson":4,
+            "student":6
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 13,
+        "fields" : {
+            "lesson":4,
+            "student":7
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 14,
+        "fields" : {
+            "lesson":4,
+            "student":8
+            }
+    },
+    {
+        "model": "nexong.lesson_students",
+        "pk": 15,
+        "fields" : {
+            "lesson":4,
+            "student":3
             }
     },
     {
@@ -208,26 +900,110 @@
         "fields" : {
             "name": "Examen Tema 1",
             "description": "Examen del tema 1, 17 febrero",
-            "grade_system": "ZERO_TO_ONE",
+            "grade_system": "ZERO_TO_TEN",
+            "grade":6.5,
+            "date": "2024-02-17",
+            "evaluation_type": "ANNUAL",
+            "student": 4,
+            "lesson" : 1
+            }
+    },
+    {
+        "model": "nexong.studentevaluation",
+        "pk": 2,
+        "fields" : {
+            "name": "Examen Tema 1",
+            "description": "Examen del tema 1, 17 febrero",
+            "grade_system": "ZERO_TO_TEN",
             "grade":0.4,
             "date": "2024-02-17",
-            "evaluation_type": "DAILY",
-            "student": 1,
+            "evaluation_type": "ANNUAL",
+            "student": 5,
             "lesson" : 1
+            }
+    },
+    {
+        "model": "nexong.studentevaluation",
+        "pk": 3,
+        "fields" : {
+            "name": "Asistencia diaria",
+            "description": "Clase del 16 de febrero",
+            "grade_system": "ZERO_TO_ONE",
+            "grade":1,
+            "date": "2024-02-16",
+            "evaluation_type": "DAILY",
+            "student": 2,
+            "lesson" : 2
+            }
+    },
+    {
+        "model": "nexong.studentevaluation",
+        "pk": 4,
+        "fields" : {
+            "name": "Asistencia diaria",
+            "description": "Clase del 16 de febrero",
+            "grade_system": "ZERO_TO_ONE",
+            "grade":1,
+            "date": "2024-02-16",
+            "evaluation_type": "DAILY",
+            "student": 7,
+            "lesson" : 2
+            }
+    },
+    {
+        "model": "nexong.studentevaluation",
+        "pk": 5,
+        "fields" : {
+            "name": "Asistencia diaria",
+            "description": "Clase del 16 de febrero",
+            "grade_system": "ZERO_TO_ONE",
+            "grade":0,
+            "date": "2024-02-16",
+            "evaluation_type": "DAILY",
+            "student": 8,
+            "lesson" : 2
             }
     },
     {
         "model": "nexong.lessonevaluation",
         "pk": 1,
         "fields" : {
-            "name": "No estoy contento",
-            "description": "No le ha gustado el curso",
-            "grade_system": "ZERO_TO_TEN",
-            "grade": 2,
+            "name": "No esta mal",
+            "description": "Mejorable",
+            "grade_system": "ONE_TO_FIVE",
+            "grade": 4,
             "date":"2024-02-16",
             "evaluation_type":"ANNUAL",
-            "lesson":1,
+            "lesson":3,
             "family":1
+            }
+    },
+    {
+        "model": "nexong.lessonevaluation",
+        "pk": 2,
+        "fields" : {
+            "name": "Mi hijo se agobia",
+            "description": "Los muñecos de colorines le dan ansiedad",
+            "grade_system": "ONE_TO_FIVE",
+            "grade": 3,
+            "date":"2024-01-5",
+            "evaluation_type":"ANNUAL",
+            "lesson":3,
+            "family":3
+            }
+    },
+    {
+        "model": "nexong.lessonevaluation",
+        "pk": 3,
+        "fields" : {
+            "name": "El título engaña",
+            "description": "No es literatura india, es literatura asiática en general. Me siento estafado",
+            "grade_system": "ONE_TO_FIVE",
+            "grade": 2,
+            "date":"2023-11-22",
+            "evaluation_type":"ANNUAL",
+            "lesson":2,
+            "family":2
             }
     },
     {
@@ -237,11 +1013,67 @@
             "name": "Excursión al Ordenador",
             "description": "Vamos al centro a ver El Ordenador",
             "place":"Centro Sevilla",
-            "capacity": 100,
+            "capacity": 2,
             "max_volunteers" : 10,
+            "start_date":"2024-04-18 12:00-00:00",
+            "end_date":"2024-04-18 18:00-00:00",
+            "lesson": 1
+            }
+    },
+    {
+        "model": "nexong.event",
+        "pk": 2,
+        "fields" : {
+            "name": "Clase 16/2",
+            "description": "Clase teoría",
+            "place":"Clase I2.33",
+            "capacity": 22,
+            "max_volunteers" : 1,
+            "start_date":"2024-02-16 12:00-00:00",
+            "end_date":"2024-02-16 13:00-00:00",
+            "lesson": 1
+            }
+    },
+    {
+        "model": "nexong.event",
+        "pk": 3,
+        "fields" : {
+            "name": "Clase 27/2",
+            "description": "Examen del tema 2",
+            "place":"Clase A56.11",
+            "capacity": 10,
+            "max_volunteers" : 1,
+            "start_date":"2024-02-27 13:00-00:00",
+            "end_date":"2024-02-27 13:10-00:00",
+            "lesson": 2
+            }
+    },
+    {
+        "model": "nexong.event",
+        "pk": 4,
+        "fields" : {
+            "name": "Vienen los lunnis",
+            "description": "Se necesitan 3 voluntarios para hacer de Lucho",
+            "place":"Jardín principal",
+            "capacity": 200,
+            "max_volunteers" : 3,
+            "start_date":"2024-06-12 06:00-00:00",
+            "end_date":"2024-06-12 11:00-00:00",
+            "lesson": 3
+            }
+    },
+    {
+        "model": "nexong.event",
+        "pk": 5,
+        "fields" : {
+            "name": "Celebración día de Andalucía",
+            "description": "Esta es una descripción extremadamente extensa. La finalidad de esta descripción es poner a prueba las vistas de estos datos. En teoría se deben soportar hasta 1000 caracteres. Eso es una barbaridad. El extranjero (L'Étranger) es un libro de Albert Camus publicado en el año 1942 y supone una de sus obras más leídas en el mundo. La novela nos presenta a Meursault, un hombre franco-argelino que se muestra pasivo y ajeno al mundo que le rodea. Tras cometer un crimen, no experimenta el arrepentimiento, tampoco se inmuta ante la muerte de su madre. La actitud del protagonista choca con las convenciones sociales y lo conduce a su propia sentencia de muerte. La obra, por su temática, está enmarcada dentro de la filosofía del absurdo y también ha sido estudiada dentro del pensamiento existencialista, a pesar de la negativa de su autor de pertenecer a esta corriente. Veamos cómo está presente a través de un resumen y análisis del libro. ",
+            "place":"Plaza de España",
+            "capacity": 2000,
+            "max_volunteers" : 30,
             "start_date":"2024-02-28 12:00-00:00",
             "end_date":"2024-02-28 18:00-00:00",
-            "lesson": 1
+            "lesson": null
             }
     },
     {
@@ -249,24 +1081,170 @@
         "pk": 1,
         "fields" : {
             "event":1,
-            "user":1
+            "user":3
+        }
+    },
+    {
+        "model": "nexong.event_attendees",
+        "pk": 2,
+        "fields" : {
+            "event":4,
+            "user":4
+        }
+    },
+    {
+        "model": "nexong.event_attendees",
+        "pk": 3,
+        "fields" : {
+            "event":4,
+            "user":5
+        }
+    },
+    {
+        "model": "nexong.event_attendees",
+        "pk": 4,
+        "fields" : {
+            "event":4,
+            "user":3
+        }
+    },
+    {
+        "model": "nexong.event_attendees",
+        "pk": 5,
+        "fields" : {
+            "event":5,
+            "user":3
+        }
+    },
+    {
+        "model": "nexong.event_attendees",
+        "pk": 6,
+        "fields" : {
+            "event":5,
+            "user":4
         }
     },
     {
         "model": "nexong.event_educators",
         "pk": 1,
         "fields" : {
-            "event":1,
+            "event":2,
+            "educator":2
+        }
+    },
+    {
+        "model": "nexong.event_educators",
+        "pk": 2,
+        "fields" : {
+            "event":3,
             "educator":1
+        }
+    },
+    {
+        "model": "nexong.event_educators",
+        "pk": 3,
+        "fields" : {
+            "event":4,
+            "educator":2
         }
     },
     {
         "model": "nexong.centerexitauthorization",
         "pk": 1,
         "fields": {
-            "authorization": null,
-            "student" : 1,
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 4,
             "is_authorized": true,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 2,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 5,
+            "is_authorized": true,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 3,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 1,
+            "is_authorized": false,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 4,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 2,
+            "is_authorized": false,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 5,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 3,
+            "is_authorized": true,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 6,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 4,
+            "is_authorized": true,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 7,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 5,
+            "is_authorized": true,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 8,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 6,
+            "is_authorized": true,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 9,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 7,
+            "is_authorized": true,
+            "event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 10,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 8,
+            "is_authorized": false,
             "event":1
             }
     }
