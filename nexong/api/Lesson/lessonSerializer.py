@@ -39,32 +39,3 @@ class LessonAttendanceSerializer(ModelSerializer):
             "lesson",
             "volunteer",
         ]
-
-
-class LessonEventSerializer(ModelSerializer):
-    educators = serializers.PrimaryKeyRelatedField(
-        many=True, required=True, queryset=Educator.objects.all()
-    )
-    attendees = serializers.PrimaryKeyRelatedField(
-        many=True, required=True, queryset=Student.objects.all()
-    )
-    volunteers = serializers.PrimaryKeyRelatedField(
-        many=True, required=False, queryset=Volunteer.objects.all()
-    )
-
-    class Meta:
-        model = LessonEvent
-        fields = [
-            "id",
-            "name",
-            "description",
-            "place",
-            "max_volunteers",
-            "start_date",
-            "end_date",
-            "lesson",
-            "price",
-            "educators",
-            "attendees",
-            "volunteers",
-        ]
