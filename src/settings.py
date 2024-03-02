@@ -15,8 +15,9 @@ DEBUG = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ["moz-extension://d8e9b363-83a5-44fc-9519-03eadf6efffb"]
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
+APPEND_SLASH = False
 
 
 # Application definition
