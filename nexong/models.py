@@ -24,10 +24,12 @@ ROLE = [
 PENDING = "PENDING"
 ACCEPTED = "ACCEPTED"
 REJECTED = "REJECTED"
+EXPIRED = "EXPIRED"
 STATUS = [
     (PENDING, "Pendiente"),
     (ACCEPTED, "Aceptado"),
     (REJECTED, "Rechazado"),
+    (EXPIRED, "Caducado")
 ]
 ANNUAL = "ANNUAL"
 MONTHLY = "MONTHLY"
