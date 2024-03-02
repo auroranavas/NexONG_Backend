@@ -29,7 +29,7 @@ STATUS = [
     (PENDING, "Pendiente"),
     (ACCEPTED, "Aceptado"),
     (REJECTED, "Rechazado"),
-    (EXPIRED, "Caducado")
+    (EXPIRED, "Caducado"),
 ]
 ANNUAL = "ANNUAL"
 MONTHLY = "MONTHLY"
