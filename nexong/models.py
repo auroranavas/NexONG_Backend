@@ -6,7 +6,6 @@ from django.core.validators import (
     URLValidator,
 )
 
-# Create your models here.
 
 ADMIN = "ADMIN"
 EDUCATOR = "EDUCATOR"
@@ -83,16 +82,28 @@ EVALUATION_TYPE = [
     (DAILY, "Diario"),
     (ANNUAL, "Anual"),
 ]
+WEEKDAYS = [
+    ("MONDAY", "Lunes"),
+    ("TUESDAY", "Martes"),
+    ("WEDNESDAY", "Miércoles"),
+    ("THURSDAY", "Jueves"),
+    ("FRIDAY", "Viernes"),
+    ("SATURDAY", "Sábado"),
+    ("SUNDAY", "Domingo"),
+]
 
 
 class Family(models.Model):
     name = models.CharField(max_length=255)
 
 
+class EducationCenter(models.Model):
+    name = models.CharField(max_length=255)
+
+
 class Student(models.Model):
     name = models.CharField(max_length=255)
     surname = models.CharField(max_length=255)
-    education_center = models.CharField(max_length=255)
     current_education_year = models.CharField(
         max_length=20, choices=CURRENT_EDUCATION_YEAR, default=THREE_YEARS
     )
@@ -101,22 +112,47 @@ class Student(models.Model):
     scanned_sanitary_card = models.FileField(upload_to="files/student_sanitary")
     nationality = models.CharField(max_length=255)
     birthdate = models.DateField()
+    is_morning_student = models.BooleanField(default=False)
+    status = models.CharField(max_length=10, choices=STATUS, default=PENDING, null=True)
+    activities_during_exit = models.CharField(max_length=1000, null=True, blank=True)
+    education_center = models.ForeignKey(
+        EducationCenter,
+        on_delete=models.CASCADE,
+        related_name="education_center",
+        null=True,
+        blank=True,
+    )
     family = models.ForeignKey(
         Family, on_delete=models.CASCADE, related_name="students", null=True, blank=True
     )
 
 
+class QuarterMarks(models.Model):
+    date = models.DateField()
+    marks = models.FileField(upload_to="files/quarter_marks")
+    student = models.ForeignKey(
+        Student, on_delete=models.CASCADE, related_name="quarter_marks"
+    )
+
+
 class Partner(models.Model):
-    holder = models.CharField(max_length=255)
+    address = models.CharField(max_length=255, null=True, blank=True)
+    enrollment_document = models.FileField(upload_to="files/partner_enrollment")
+    birthdate = models.DateField(null=True)
+
+
+class Donation(models.Model):
     iban = models.CharField(max_length=34, unique=True)
     quantity = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     frequency = models.CharField(max_length=11, choices=FRECUENCY, default=MENSUAL)
-    address = models.CharField(max_length=255, null=True, blank=True)
-    enrollment_document = models.FileField(upload_to="files/partner_enrollment")
+    holder = models.CharField(max_length=255)
     quota_extension_document = models.FileField(
         null=True, blank=True, upload_to="files/partner_quota"
     )
-    birthdate = models.DateField(null=True)
+    date = models.DateField()
+    partner = models.ForeignKey(
+        Partner, on_delete=models.CASCADE, related_name="donations"
+    )
 
 
 class Volunteer(models.Model):
@@ -174,6 +210,9 @@ class User(AbstractBaseUser):
     volunteer = models.OneToOneField(
         Volunteer, on_delete=models.CASCADE, blank=True, null=True
     )
+    educator_center = models.OneToOneField(
+        EducationCenter, on_delete=models.CASCADE, blank=True, null=True
+    )
     educator = models.OneToOneField(
         Educator, on_delete=models.CASCADE, blank=True, null=True
     )
@@ -190,17 +229,6 @@ class Meeting(models.Model):
     attendees = models.ManyToManyField(Partner, related_name="meetings_attending")
 
 
-class Comment(models.Model):
-    commenter = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="comments_made"
-    )
-    commentee = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="comments_received"
-    )
-    text = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
 class Lesson(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
@@ -210,48 +238,69 @@ class Lesson(models.Model):
         Educator, on_delete=models.CASCADE, related_name="lessons"
     )
     students = models.ManyToManyField(Student, related_name="lessons")
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
 
 
-class StudentEvaluation(models.Model):
+class Schedule(models.Model):
+    weekday = models.CharField(max_length=10, choices=WEEKDAYS, default="MONDAY")
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    lesson = models.ForeignKey(
+        Lesson, on_delete=models.CASCADE, related_name="schedules"
+    )
+
+
+class EvaluationType(models.Model):
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=1000)
-    grade_system = models.CharField(
-        max_length=20, choices=GRADESYSTEM, default=ZERO_TO_TEN
-    )
-    grade = models.IntegerField(
-        validators=[MinValueValidator(0), MaxValueValidator(10)], default=0
-    )
-    date = models.DateField()
+    description = models.CharField(max_length=1000, null=True, blank=True)
     evaluation_type = models.CharField(
         max_length=10, choices=EVALUATION_TYPE, default=DAILY
     )
-    student = models.ForeignKey(
-        Student, on_delete=models.CASCADE, related_name="student_evaluations"
+    grade_system = models.CharField(
+        max_length=20, choices=GRADESYSTEM, default=ZERO_TO_TEN
     )
     lesson = models.ForeignKey(
         Lesson, on_delete=models.CASCADE, related_name="student_evaluations"
     )
 
 
-class LessonEvaluation(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=1000)
-    grade_system = models.CharField(
-        max_length=20, choices=GRADESYSTEM, default=ZERO_TO_TEN
-    )
+class StudentEvaluation(models.Model):
     grade = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(10)], default=0
     )
     date = models.DateField()
-    evaluation_type = models.CharField(
-        max_length=10, choices=EVALUATION_TYPE, default=DAILY
+    comment = models.CharField(max_length=1000, null=True, blank=True)
+    student = models.ForeignKey(
+        Student, on_delete=models.CASCADE, related_name="student_evaluations"
     )
+    evaluation_type = models.ForeignKey(
+        EvaluationType, on_delete=models.CASCADE, related_name="student_evaluations"
+    )
+
+
+class LessonAttendance(models.Model):
+    date = models.DateField()
     lesson = models.ForeignKey(
-        Lesson, on_delete=models.CASCADE, related_name="lesson_evaluations"
+        Lesson, on_delete=models.CASCADE, related_name="lesson_attendances"
     )
-    family = models.ForeignKey(
-        Family, on_delete=models.CASCADE, related_name="lesson_evaluations"
+    volunteer = models.ForeignKey(
+        Volunteer, on_delete=models.CASCADE, related_name="lesson_attendances"
     )
+
+
+class LessonEvent(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=1000)
+    place = models.CharField(max_length=1000)
+    max_volunteers = models.IntegerField(validators=[MinValueValidator(0)])
+    start_date = models.DateTimeField(blank=True)
+    end_date = models.DateTimeField(blank=True)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, null=True, blank=True)
+    price = models.IntegerField(validators=[MinValueValidator(0)], default=0)
+    educators = models.ManyToManyField(Educator, related_name="lesson_events")
+    attendees = models.ManyToManyField(Student, related_name="lesson_events")
+    volunteers = models.ManyToManyField(Volunteer, related_name="lesson_events")
 
 
 class Event(models.Model):
@@ -260,11 +309,12 @@ class Event(models.Model):
     place = models.CharField(max_length=1000)
     capacity = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     max_volunteers = models.IntegerField(validators=[MinValueValidator(0)])
+    max_attendees = models.IntegerField(validators=[MinValueValidator(0)])
     start_date = models.DateTimeField(blank=True)
     end_date = models.DateTimeField(blank=True)
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, null=True, blank=True)
-    attendees = models.ManyToManyField(User, related_name="events")
-    educators = models.ManyToManyField(Educator, related_name="events")
+    price = models.IntegerField(validators=[MinValueValidator(0)], default=0)
+    attendees = models.ManyToManyField(Student, related_name="events")
+    volunteers = models.ManyToManyField(Volunteer, related_name="events")
 
 
 class CenterExitAuthorization(models.Model):
@@ -273,6 +323,6 @@ class CenterExitAuthorization(models.Model):
         Student, on_delete=models.CASCADE, related_name="center_exits"
     )
     is_authorized = models.BooleanField(default=False)
-    event = models.ForeignKey(
-        Event, on_delete=models.CASCADE, related_name="center_exit_authorizations"
+    lesson_event = models.ForeignKey(
+        LessonEvent, on_delete=models.CASCADE, related_name="center_exit_authorizations"
     )
