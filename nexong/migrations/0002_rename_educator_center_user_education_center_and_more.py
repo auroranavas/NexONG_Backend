@@ -5,29 +5,43 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('nexong', '0001_initial'),
+        ("nexong", "0001_initial"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='user',
-            old_name='educator_center',
-            new_name='education_center',
+            model_name="user",
+            old_name="educator_center",
+            new_name="education_center",
         ),
         migrations.RemoveField(
-            model_name='user',
-            name='is_admin',
+            model_name="user",
+            name="is_admin",
         ),
         migrations.AlterField(
-            model_name='donation',
-            name='frequency',
-            field=models.CharField(choices=[('ANNUAL', 'Anual'), ('MONTHLY', 'Mensual'), ('QUARTERLY', 'Trimestral'), ('SIX-MONTHLY', 'Seis Meses')], default='MONTHLY', max_length=11),
+            model_name="donation",
+            name="frequency",
+            field=models.CharField(
+                choices=[
+                    ("ANNUAL", "Anual"),
+                    ("MONTHLY", "Mensual"),
+                    ("QUARTERLY", "Trimestral"),
+                    ("SIX-MONTHLY", "Seis Meses"),
+                ],
+                default="MONTHLY",
+                max_length=11,
+            ),
         ),
         migrations.AlterField(
-            model_name='volunteer',
-            name='postal_code',
-            field=models.IntegerField(default=10000, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(90000)]),
+            model_name="volunteer",
+            name="postal_code",
+            field=models.IntegerField(
+                default=10000,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(90000),
+                ],
+            ),
         ),
     ]
