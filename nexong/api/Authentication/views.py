@@ -165,6 +165,7 @@ class FamilyCUDApiViewSet(APIView):
         family.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
 class EducationCenterGetApiViewSet(ModelViewSet):
     http_method_names = ["get"]
     serializer_class = EducationCenterGetSerializer

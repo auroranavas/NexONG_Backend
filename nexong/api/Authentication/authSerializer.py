@@ -32,20 +32,25 @@ class FamilySerializer(ModelSerializer):
         model = Family
         fields = "__all__"
 
+
 class EducationCenterSerializer(ModelSerializer):
     class Meta:
         model = EducationCenter
         fields = "__all__"
 
+
 class EducationCenterGetSerializer(ModelSerializer):
-    user = UserSerializer() # With this it brings the user related to the educationCenter
-    
+    user = (
+        UserSerializer()
+    )  # With this it brings the user related to the educationCenter
+
     class Meta:
         model = EducationCenter
         fields = "__all__"
 
+
 class EducatorGetSerializer(ModelSerializer):
-    user = UserSerializer()  
+    user = UserSerializer()
 
     class Meta:
         model = Educator
