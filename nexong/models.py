@@ -306,7 +306,7 @@ class Event(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
     place = models.CharField(max_length=1000)
-    capacity = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    capacity = models.IntegerField(validators=[MinValueValidator(0)])
     max_volunteers = models.IntegerField(validators=[MinValueValidator(0)])
     max_attendees = models.IntegerField(validators=[MinValueValidator(0)])
     start_date = models.DateTimeField(blank=True)
