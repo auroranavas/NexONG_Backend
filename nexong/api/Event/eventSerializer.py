@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from nexong.models import Event, User, LessonEvent
+from nexong.models import Event, LessonEvent, Student
 from rest_framework.serializers import ModelSerializer
 from datetime import datetime, timezone
 
@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 class LessonEventSerializer(ModelSerializer):
     # attendees is optional at creation
     attendees = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(), many=True, required=False
+        queryset=Student.objects.all(), many=True, required=False
     )
     url = serializers.HyperlinkedIdentityField(view_name="lessonevent-detail")
 
@@ -66,7 +66,7 @@ class LessonEventSerializer(ModelSerializer):
 class EventSerializer(ModelSerializer):
     # attendees is optional at creation
     attendees = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(), many=True, required=False
+        queryset=Student.objects.all(), many=True, required=False
     )
     url = serializers.HyperlinkedIdentityField(view_name="event-detail")
 
