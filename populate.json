@@ -263,7 +263,7 @@
             "holder": "MANRIQUE DINERO",
             "iban" : "ES7614656137308238282572",
             "quantity": 12,
-            "frequency": "ANUAL",
+            "frequency": "ANNUAL",
             "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
             "date":"2023-07-21",
             "partner":1
@@ -429,6 +429,26 @@
             }
     },
     {
+        "model": "nexong.volunteer",
+        "pk": 7,
+        "fields": {
+            "academic_formation": "Secundaria",
+            "motivation" : "Me gusta ayudar, pero me caducan los documentos con facilidad",
+            "status":"EXPIRED",
+            "address": "Jamrock 13",
+            "postal_code": 24191,
+            "enrollment_document" : "NexONG_Backend\\files\\volunteer_enrollment\\volunteer_enrollment.txt",
+            "registry_sheet": "NexONG_Backend\\files\\volunteer_registry\\volunteer_registry.txt",
+            "sexual_offenses_document": "NexONG_Backend\\files\\volunteer_offenses\\volunteer_offenses.txt",
+            "scanned_id": "NexONG_Backend\\files\\volunteer_id\\volunteer_id.txt",
+            "minor_authorization": "NexONG_Backend\\files\\volunteer_minor\\volunteer_minor.txt",
+            "scanned_authorizer_id": "NexONG_Backend\\files\\volunteer_authorizer\\volunteer_authorizer.txt",
+            "birthdate" : "2000-03-7",
+            "start_date": "2019-02-01",
+            "end_date": "2024-01-20"
+            }
+    },
+    {
         "model": "nexong.educator",
         "pk": 1,
         "fields" : {
@@ -458,8 +478,7 @@
             "partner":null,
             "volunteer":null,
             "education_center":null,
-            "educator":1,
-            "is_admin": false
+            "educator":1
             }
     },
     {
@@ -478,8 +497,7 @@
             "partner":null,
             "volunteer":null,
             "education_center":null,
-            "educator":2,
-            "is_admin": false
+            "educator":2
             }
     },
     {
@@ -497,9 +515,7 @@
             "family":null,
             "partner":null,
             "volunteer":1,
-            "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "education_center":null
             }
     },
     {
@@ -518,8 +534,7 @@
             "partner":null,
             "volunteer":2,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
@@ -538,8 +553,7 @@
             "partner":null,
             "volunteer":3,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
@@ -558,8 +572,7 @@
             "partner":null,
             "volunteer":4,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
@@ -578,8 +591,7 @@
             "partner":null,
             "volunteer":5,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
@@ -598,13 +610,31 @@
             "partner":null,
             "volunteer":6,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
         "pk": 9,
+        "fields": {
+            "name": "Despiste",
+            "surname" : "Caduceo",
+            "id_number" : "48576821J",
+            "phone" : 622922922,
+            "role": "VOLUNTEER",
+            "password": "volutalio7",
+            "email": "despistec@gmail.com",
+            "avatar": "https://i.kym-cdn.com/photos/images/newsfeed/002/598/602/a49.jpg",
+            "family":null,
+            "partner":null,
+            "volunteer":7,
+            "education_center":null,
+            "educator":null
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 10,
         "fields": {
             "name": "Manrique",
             "surname" : "Dinero",
@@ -618,13 +648,12 @@
             "partner":1,
             "volunteer":null,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 10,
+        "pk": 11,
         "fields": {
             "name": "Francisco",
             "surname" : "Asociado",
@@ -638,13 +667,12 @@
             "partner":2,
             "volunteer":null,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 11,
+        "pk": 12,
         "fields": {
             "name": "Sofía",
             "surname" : "Vergara",
@@ -658,13 +686,12 @@
             "partner":3,
             "volunteer":null,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 12,
+        "pk": 13,
         "fields": {
             "name": "Angelina",
             "surname" : "Germanotta",
@@ -678,13 +705,12 @@
             "partner":4,
             "volunteer":null,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 13,
+        "pk": 14,
         "fields": {
             "name": "Padre",
             "surname" : "Enriquez",
@@ -698,13 +724,12 @@
             "partner":null,
             "volunteer":null,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 14,
+        "pk": 15,
         "fields": {
             "name": "Madre",
             "surname" : "Teresa",
@@ -718,13 +743,12 @@
             "partner":null,
             "volunteer":null,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 15,
+        "pk": 16,
         "fields": {
             "name": "Acogeniños",
             "surname" : "Wawer",
@@ -738,13 +762,12 @@
             "partner":null,
             "volunteer":null,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 16,
+        "pk": 17,
         "fields": {
             "name": "Miembro",
             "surname" : "Soltero",
@@ -758,13 +781,12 @@
             "partner":null,
             "volunteer":null,
             "education_center":null,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 17,
+        "pk": 18,
         "fields": {
             "name": "Centro Educativo",
             "surname" : "Doctrina",
@@ -778,13 +800,12 @@
             "partner":null,
             "volunteer":null,
             "education_center":1,
-            "educator":null,
-            "is_admin": false
+            "educator":null
             }
     },
     {
         "model": "nexong.user",
-        "pk": 18,
+        "pk": 19,
         "fields": {
             "name": "Centro Educativo",
             "surname" : "Claret",
@@ -798,8 +819,26 @@
             "partner":null,
             "volunteer":null,
             "education_center":2,
-            "educator":null,
-            "is_admin": false
+            "educator":null
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 20,
+        "fields": {
+            "name": "Admin",
+            "surname" : "Admin",
+            "id_number" : "85738237V",
+            "phone" : 638576655,
+            "role": "ADMIN",
+            "password": "admin",
+            "email": "admin@gmail.com",
+            "avatar": "https://static.vecteezy.com/system/resources/previews/015/665/684/non_2x/man-with-the-inscription-admin-icon-outline-style-vector.jpg",
+            "family":null,
+            "partner":null,
+            "volunteer":null,
+            "education_center":null,
+            "educator":null
             }
     },
     {
@@ -1088,19 +1127,8 @@
         "model": "nexong.evaluationtype",
         "pk": 1,
         "fields" : {
-            "name":"Examen Tema 1",
-            "description":"Examen del tema 1, 17 febrero",
-            "evaluation_type":"ANNUAL",
-            "grade_system":"ZERO_TO_TEN",
-            "lesson":1
-            }
-    },
-    {
-        "model": "nexong.evaluationtype",
-        "pk": 1,
-        "fields" : {
-            "name":"Examen Tema 1",
-            "description":"Examen del tema 1, 17 febrero",
+            "name":"Nota Computadores",
+            "description":"Nota final para la asignatura de computadores",
             "evaluation_type":"ANNUAL",
             "grade_system":"ZERO_TO_TEN",
             "lesson":1
@@ -1200,25 +1228,25 @@
         "model": "nexong.lessonevent",
         "pk": 2,
         "fields" : {
-            "name": "Clase 16/2",
-            "description": "Clase teoría",
-            "place":"Clase I2.33",
+            "name": "Campamento de literatura",
+            "description": "Vamos a Arahal a leer libros en el campo",
+            "place":"Arahal",
             "price": 0,
-            "max_volunteers" : 1,
+            "max_volunteers" : 3,
             "start_date":"2024-02-16 12:00-00:00",
             "end_date":"2024-02-16 13:00-00:00",
-            "lesson": 1
+            "lesson": 2
             }
     },
     {
         "model": "nexong.lessonevent",
         "pk": 3,
         "fields" : {
-            "name": "Clase 27/2",
-            "description": "Examen del tema 2",
-            "place":"Clase A56.11",
-            "price": 0,
-            "max_volunteers" : 1,
+            "name": "Leer en la biblioteca",
+            "description": "Aprendemos a leer en una biblioteca",
+            "place":"Biblioteca Jacinto Benavente",
+            "price": 2,
+            "max_volunteers" : 0,
             "start_date":"2024-02-27 13:00-00:00",
             "end_date":"2024-02-27 13:10-00:00",
             "lesson": 2
@@ -1245,7 +1273,7 @@
         "pk": 3,
         "fields" : {
             "lessonevent":2,
-            "student":4
+            "student":2
         }
     },
     {
@@ -1253,7 +1281,7 @@
         "pk": 4,
         "fields" : {
             "lessonevent":2,
-            "student":5
+            "student":7
         }
     },
     {
@@ -1261,7 +1289,7 @@
         "pk": 1,
         "fields" : {
             "lessonevent":2,
-            "educator":2
+            "educator":1
         }
     },
     
@@ -1285,8 +1313,16 @@
         "model": "nexong.lessonevent_volunteers",
         "pk": 1,
         "fields" : {
-            "lessonevent":1,
+            "lessonevent":2,
             "volunteer":1
+        }
+    },
+    {
+        "model": "nexong.lessonevent_volunteers",
+        "pk": 2,
+        "fields" : {
+            "lessonevent":1,
+            "volunteer":3
         }
     },
     {
@@ -1385,6 +1421,26 @@
             "student" : 5,
             "is_authorized": false,
             "lesson_event":1
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 3,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 2,
+            "is_authorized": true,
+            "lesson_event":2
+            }
+    },
+    {
+        "model": "nexong.centerexitauthorization",
+        "pk": 4,
+        "fields": {
+            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
+            "student" : 7,
+            "is_authorized": true,
+            "lesson_event":2
             }
     }
 ]
