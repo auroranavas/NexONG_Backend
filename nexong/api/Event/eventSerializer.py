@@ -43,9 +43,9 @@ class LessonEventSerializer(ModelSerializer):
         max_volunteers = attrs.get("max_volunteers")
 
         if max_volunteers < num_volunteers:
-            validation_error["max_volunteers"] = (
-                "max_volunteers must be higher or equal to the number of volunteers selected."
-            )
+            validation_error[
+                "max_volunteers"
+            ] = "max_volunteers must be higher or equal to the number of volunteers selected."
 
         start_date = attrs.get("start_date")
         if start_date <= datetime.now(timezone.utc):
@@ -97,29 +97,29 @@ class EventSerializer(ModelSerializer):
         max_attendees = attrs.get("max_attendees")
 
         if max_attendees < num_attendees:
-            validation_error["max_attendees"] = (
-                "max_attendees must be higher or equal to the number of attendees selected."
-            )
+            validation_error[
+                "max_attendees"
+            ] = "max_attendees must be higher or equal to the number of attendees selected."
 
         volunteers_emails = attrs.get("volunteers")
         num_volunteers = len(volunteers_emails)
         max_volunteers = attrs.get("max_volunteers")
 
         if max_volunteers < num_volunteers:
-            validation_error["max_volunteers"] = (
-                "max_volunteers must be higher or equal to the number of volunteers selected."
-            )
+            validation_error[
+                "max_volunteers"
+            ] = "max_volunteers must be higher or equal to the number of volunteers selected."
 
         max_capacity = attrs.get("capacity")
         if max_capacity < max_attendees + max_volunteers:
-            validation_error["capacity"] = (
-                "max_capacity must be higher or equal to max_attendees + max_volunteers."
-            )
+            validation_error[
+                "capacity"
+            ] = "max_capacity must be higher or equal to max_attendees + max_volunteers."
 
         if max_capacity < num_attendees + num_volunteers:
-            validation_error["capacity"] = (
-                "max_capacity must be higher or equal to the total number of people attending."
-            )
+            validation_error[
+                "capacity"
+            ] = "max_capacity must be higher or equal to the total number of people attending."
 
         start_date = attrs.get("start_date")
         if start_date <= datetime.now(timezone.utc):
