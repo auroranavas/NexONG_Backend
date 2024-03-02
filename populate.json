@@ -28,12 +28,29 @@
             }
     },
     {
+        "model": "nexong.educationcenter",
+        "pk": 1,
+        "fields": {
+            "name": "Doctrina"
+            }
+    },
+    {
+        "model": "nexong.educationcenter",
+        "pk": 2,
+        "fields": {
+            "name": "Claret"
+            }
+    },
+    {
         "model": "nexong.student",
         "pk": 1,
         "fields" : {
             "name": "Emilio",
             "surname" : "Enriquez",
-            "education_center": "Doctrina",
+            "education_center": 1,
+            "is_morning_student": true,
+            "activities_during_exit": "",
+            "status": "ACCEPTED",
             "current_education_year": "THREE_YEARS",
             "education_center_tutor": "Francisco Ibañez",
             "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
@@ -49,7 +66,10 @@
         "fields" : {
             "name": "Jajuto",
             "surname" : "Enriquez",
-            "education_center": "Doctrina",
+            "education_center": 1,
+            "is_morning_student": false,
+            "activities_during_exit": "",
+            "status": "ACCEPTED",
             "current_education_year": "FOURTH_PRIMARY",
             "education_center_tutor": "Francisco Ibañez",
             "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
@@ -65,7 +85,10 @@
         "fields" : {
             "name": "Enjuto",
             "surname" : "Mojamuto",
-            "education_center": "Claret",
+            "education_center": 2,
+            "is_morning_student": true,
+            "activities_during_exit": "",
+            "status": "ACCEPTED",
             "current_education_year": "THREE_YEARS",
             "education_center_tutor": "Hulk Hogan",
             "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
@@ -81,7 +104,10 @@
         "fields" : {
             "name": "Adoptada Uno",
             "surname" : "De La Calle",
-            "education_center": "Claret",
+            "education_center": 2,
+            "is_morning_student": true,
+            "activities_during_exit": "",
+            "status": "ACCEPTED",
             "current_education_year": "SECOND_SECONDARY",
             "education_center_tutor": "Hulk Hogan",
             "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
@@ -97,7 +123,10 @@
         "fields" : {
             "name": "Adoptada Dos",
             "surname" : "De La Calle",
-            "education_center": "Claret",
+            "education_center": 2,
+            "is_morning_student": true,
+            "activities_during_exit": "",
+            "status": "ACCEPTED",
             "current_education_year": "SECOND_SECONDARY",
             "education_center_tutor": "Hulk Hogan",
             "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
@@ -113,7 +142,10 @@
         "fields" : {
             "name": "Harrier",
             "surname" : "Du Bois",
-            "education_center": "Doctrina",
+            "education_center": 1,
+            "is_morning_student": true,
+            "activities_during_exit": "",
+            "status": "ACCEPTED",
             "current_education_year": "FOUR_YEARS",
             "education_center_tutor": "Francisco Ibañez",
             "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
@@ -129,7 +161,10 @@
         "fields" : {
             "name": "Kim",
             "surname" : "Wawer",
-            "education_center": "Doctrina",
+            "education_center": 1,
+            "is_morning_student": false,
+            "activities_during_exit": "",
+            "status": "ACCEPTED",
             "current_education_year": "SIXTH_PRIMARY",
             "education_center_tutor": "Francisco Ibañez",
             "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
@@ -145,7 +180,10 @@
         "fields" : {
             "name": "Evrart",
             "surname" : "Soltero",
-            "education_center": "Claret",
+            "education_center": 2,
+            "is_morning_student": false,
+            "activities_during_exit": "",
+            "status": "ACCEPTED",
             "current_education_year": "SIXTH_PRIMARY",
             "education_center_tutor": "Hulk Hogan",
             "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
@@ -155,18 +193,39 @@
             "family":4
             }
     },
-    
+    {
+        "model": "nexong.quartermarks",
+        "pk": 1,
+        "fields" : {
+            "date": "2024-01-21",
+            "marks" : "NexONG_Backend\\files\\quarter_marks\\quarter_marks.txt",
+            "student": 1
+            }
+    },
+    {
+        "model": "nexong.quartermarks",
+        "pk": 2,
+        "fields" : {
+            "date": "2024-01-21",
+            "marks" : "NexONG_Backend\\files\\quarter_marks\\quarter_marks.txt",
+            "student": 3
+            }
+    },
+    {
+        "model": "nexong.quartermarks",
+        "pk": 3,
+        "fields" : {
+            "date": "2024-01-21",
+            "marks" : "NexONG_Backend\\files\\quarter_marks\\quarter_marks.txt",
+            "student": 6
+            }
+    },
     {
         "model": "nexong.partner",
         "pk": 1,
         "fields": {
-            "holder": "MANRIQUE DINERO",
-            "iban" : "ES7614656137308238282572",
-            "quantity": 12,
-            "frequency": "ANUAL",
             "address": "Insulinde 11",
             "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
-            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
             "birthdate": "1956-07-05"
             }
     },
@@ -174,13 +233,8 @@
         "model": "nexong.partner",
         "pk": 2,
         "fields": {
-            "holder": "FRANCISCO ASOCIADO",
-            "iban" : "ES5731903988473184326598",
-            "quantity": 65,
-            "frequency": "MENSUAL",
             "address": "Katia 13",
             "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
-            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
             "birthdate": "1973-03-05"
             }
     },
@@ -188,13 +242,8 @@
         "model": "nexong.partner",
         "pk": 3,
         "fields": {
-            "holder": "SOFÍA VERGARA",
-            "iban" : "ES2104872956123218423845",
-            "quantity": 98,
-            "frequency": "QUARTERLY",
             "address": "Graad 26",
             "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
-            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
             "birthdate": "1981-01-23"
             }
     },
@@ -202,14 +251,61 @@
         "model": "nexong.partner",
         "pk": 4,
         "fields": {
+            "address": "Ilinaara 48",
+            "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
+            "birthdate": "1986-03-28"
+            }
+    },
+    {
+        "model": "nexong.donation",
+        "pk": 1,
+        "fields": {
+            "holder": "MANRIQUE DINERO",
+            "iban" : "ES7614656137308238282572",
+            "quantity": 12,
+            "frequency": "ANUAL",
+            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
+            "date":"2023-07-21",
+            "partner":1
+            }
+    },
+    {
+        "model": "nexong.donation",
+        "pk": 2,
+        "fields": {
+            "holder": "FRANCISCO ASOCIADO",
+            "iban" : "ES5731903988473184326598",
+            "quantity": 65,
+            "frequency": "MENSUAL",
+            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
+            "date":"2022-03-11",
+            "partner":2
+            }
+    },
+    {
+        "model": "nexong.donation",
+        "pk": 3,
+        "fields": {
+            "holder": "SOFÍA VERGARA",
+            "iban" : "ES2104872956123218423845",
+            "quantity": 98,
+            "frequency": "QUARTERLY",
+            "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
+            "date":"2023-11-30",
+            "partner":3
+            }
+    },
+    {
+        "model": "nexong.donation",
+        "pk": 4,
+        "fields": {
             "holder": "STEFANI JOANNE ANGELINA GERMANOTTA",
             "iban" : "ES7704875667823641839789",
             "quantity": 1045,
             "frequency": "SIXMONTHLY",
-            "address": "Ilinaara 48",
-            "enrollment_document":"NexONG_Backend\\files\\partner_enrollment\\partner_enrollment.txt",
             "quota_extension_document": "NexONG_Backend\\files\\partner_quota\\partner_quota.txt",
-            "birthdate": "1986-03-28"
+            "date":"2024-01-22",
+            "partner":4
             }
     },
     {
@@ -361,6 +457,7 @@
             "family":null,
             "partner":null,
             "volunteer":null,
+            "education_center":null,
             "educator":1,
             "is_admin": false
             }
@@ -380,6 +477,7 @@
             "family":null,
             "partner":null,
             "volunteer":null,
+            "education_center":null,
             "educator":2,
             "is_admin": false
             }
@@ -399,6 +497,7 @@
             "family":null,
             "partner":null,
             "volunteer":1,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -418,6 +517,7 @@
             "family":null,
             "partner":null,
             "volunteer":2,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -437,6 +537,7 @@
             "family":null,
             "partner":null,
             "volunteer":3,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -456,6 +557,7 @@
             "family":null,
             "partner":null,
             "volunteer":4,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -475,6 +577,7 @@
             "family":null,
             "partner":null,
             "volunteer":5,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -494,6 +597,7 @@
             "family":null,
             "partner":null,
             "volunteer":6,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -513,6 +617,7 @@
             "family":null,
             "partner":1,
             "volunteer":null,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -532,6 +637,7 @@
             "family":null,
             "partner":2,
             "volunteer":null,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -551,6 +657,7 @@
             "family":null,
             "partner":3,
             "volunteer":null,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -570,6 +677,7 @@
             "family":null,
             "partner":4,
             "volunteer":null,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -589,6 +697,7 @@
             "family":1,
             "partner":null,
             "volunteer":null,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -608,6 +717,7 @@
             "family":2,
             "partner":null,
             "volunteer":null,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -627,6 +737,7 @@
             "family":3,
             "partner":null,
             "volunteer":null,
+            "education_center":null,
             "educator":null,
             "is_admin": false
             }
@@ -646,6 +757,47 @@
             "family":4,
             "partner":null,
             "volunteer":null,
+            "education_center":null,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 17,
+        "fields": {
+            "name": "Centro Educativo",
+            "surname" : "Doctrina",
+            "id_number" : "94862395P",
+            "phone" : 699256707,
+            "role": "EDUCATION_CENTER",
+            "password": "centro1",
+            "email": "centro1@gmail.com",
+            "avatar": "https://images.theconversation.com/files/270544/original/file-20190423-175514-1rng58t.jpg?ixlib=rb-1.1.0&rect=6%2C0%2C4236%2C2828&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip",
+            "family":null,
+            "partner":null,
+            "volunteer":null,
+            "education_center":1,
+            "educator":null,
+            "is_admin": false
+            }
+    },
+    {
+        "model": "nexong.user",
+        "pk": 18,
+        "fields": {
+            "name": "Centro Educativo",
+            "surname" : "Claret",
+            "id_number" : "21214509L",
+            "phone" : 633933955,
+            "role": "EDUCATION_CENTER",
+            "password": "centro2",
+            "email": "centro2@gmail.com",
+            "avatar": "https://images.theconversation.com/files/270544/original/file-20190423-175514-1rng58t.jpg?ixlib=rb-1.1.0&rect=6%2C0%2C4236%2C2828&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip",
+            "family":null,
+            "partner":null,
+            "volunteer":null,
+            "education_center":2,
             "educator":null,
             "is_admin": false
             }
@@ -719,26 +871,6 @@
             }
     },
     {
-        "model": "nexong.comment",
-        "pk": 1,
-        "fields": {
-            "text" : "Es un honor trabajar con un miembro tan respetable como usted. ¡Feliz cumpleaños!",
-            "created_at": "2023-08-02 10:09:12-00:00",
-            "commenter": 1,
-            "commentee": 2
-            }
-    },
-    {
-        "model": "nexong.comment",
-        "pk": 2,
-        "fields": {
-            "text" : "Creo que esta socia es una famosa, pero no estoy seguro",
-            "created_at": "2024-11-4 10:11:27-00:00",
-            "commenter": 3,
-            "commentee": 12
-            }
-    },
-    {
         "model": "nexong.lesson",
         "pk": 1,
         "fields" : {
@@ -746,7 +878,9 @@
             "description": "Módulo I, segunda planta",
             "capacity": 4,
             "is_morning_lesson" : true,
-            "educator" :2
+            "educator" :2,
+            "start_date":"2024-01-28 00:00-00:00",
+            "end_date":"2024-05-28 00:00-00:00"
             }
     },
     {
@@ -757,7 +891,9 @@
             "description": "Hace falta traer tu propio bolígrafo",
             "capacity": 40,
             "is_morning_lesson" : false,
-            "educator" :1
+            "educator" :1,
+            "start_date":"2024-01-25 00:00-00:00",
+            "end_date":"2024-05-25 00:00-00:00"
             }
     },
     {
@@ -768,7 +904,9 @@
             "description": "No traer calculadoras",
             "capacity": 10,
             "is_morning_lesson" : true,
-            "educator" :1
+            "educator" :1,
+            "start_date":"2024-01-13 00:00-00:00",
+            "end_date":"2024-06-2 00:00-00:00"
             }
     },
     {
@@ -779,7 +917,9 @@
             "description": "Silencio absoluto",
             "capacity": 50,
             "is_morning_lesson" : true,
-            "educator" :2
+            "educator" :2,
+            "start_date":"2024-01-02 00:00-00:00",
+            "end_date":"2024-08-23 00:00-00:00"
             }
     },
     {
@@ -895,139 +1035,175 @@
             }
     },
     {
+        "model": "nexong.schedule",
+        "pk": 1,
+        "fields" : {
+            "weekday":"MONDAY",
+            "start_time":"12:00:00",
+            "end_time":"13:30:00",
+            "lesson":1
+            }
+    },
+    {
+        "model": "nexong.schedule",
+        "pk": 2,
+        "fields" : {
+            "weekday":"THURSDAY",
+            "start_time":"10:00:00",
+            "end_time":"11:30:00",
+            "lesson":1
+            }
+    },
+    {
+        "model": "nexong.schedule",
+        "pk": 3,
+        "fields" : {
+            "weekday":"TUESDAY",
+            "start_time":"16:30:00",
+            "end_time":"18:30:00",
+            "lesson":2
+            }
+    },
+    {
+        "model": "nexong.schedule",
+        "pk": 4,
+        "fields" : {
+            "weekday":"WEDNESDAY",
+            "start_time":"9:00:00",
+            "end_time":"13:00:00",
+            "lesson":3
+            }
+    },
+    {
+        "model": "nexong.schedule",
+        "pk": 5,
+        "fields" : {
+            "weekday":"SATURDAY",
+            "start_time":"11:00:00",
+            "end_time":"16:00:00",
+            "lesson":4
+            }
+    },
+    {
+        "model": "nexong.evaluationtype",
+        "pk": 1,
+        "fields" : {
+            "name":"Examen Tema 1",
+            "description":"Examen del tema 1, 17 febrero",
+            "evaluation_type":"ANNUAL",
+            "grade_system":"ZERO_TO_TEN",
+            "lesson":1
+            }
+    },
+    {
+        "model": "nexong.evaluationtype",
+        "pk": 1,
+        "fields" : {
+            "name":"Examen Tema 1",
+            "description":"Examen del tema 1, 17 febrero",
+            "evaluation_type":"ANNUAL",
+            "grade_system":"ZERO_TO_TEN",
+            "lesson":1
+            }
+    },
+    {
+        "model": "nexong.evaluationtype",
+        "pk": 2,
+        "fields" : {
+            "name":"Asistencia diaria",
+            "description":"Asistencia a clase",
+            "evaluation_type":"DAILY",
+            "grade_system":"ZERO_TO_ONE",
+            "lesson":2
+            }
+    },
+    {
         "model": "nexong.studentevaluation",
         "pk": 1,
         "fields" : {
-            "name": "Examen Tema 1",
-            "description": "Examen del tema 1, 17 febrero",
-            "grade_system": "ZERO_TO_TEN",
             "grade":6.5,
             "date": "2024-02-17",
-            "evaluation_type": "ANNUAL",
-            "student": 4,
-            "lesson" : 1
+            "comment":"Podría estudiar más",
+            "evaluation_type": 1,
+            "student": 4
             }
     },
     {
         "model": "nexong.studentevaluation",
         "pk": 2,
         "fields" : {
-            "name": "Examen Tema 1",
-            "description": "Examen del tema 1, 17 febrero",
-            "grade_system": "ZERO_TO_TEN",
             "grade":0.4,
             "date": "2024-02-17",
-            "evaluation_type": "ANNUAL",
-            "student": 5,
-            "lesson" : 1
+            "comment": "No sabe nada del tema",
+            "evaluation_type": 1,
+            "student": 5
             }
     },
     {
         "model": "nexong.studentevaluation",
         "pk": 3,
         "fields" : {
-            "name": "Asistencia diaria",
-            "description": "Clase del 16 de febrero",
-            "grade_system": "ZERO_TO_ONE",
             "grade":1,
             "date": "2024-02-16",
-            "evaluation_type": "DAILY",
-            "student": 2,
-            "lesson" : 2
+            "comment": "Muy formal",
+            "evaluation_type": 2,
+            "student": 2
             }
     },
     {
         "model": "nexong.studentevaluation",
         "pk": 4,
         "fields" : {
-            "name": "Asistencia diaria",
-            "description": "Clase del 16 de febrero",
-            "grade_system": "ZERO_TO_ONE",
             "grade":1,
             "date": "2024-02-16",
-            "evaluation_type": "DAILY",
-            "student": 7,
-            "lesson" : 2
+            "comment": null,
+            "evaluation_type": 2,
+            "student": 7
             }
     },
     {
         "model": "nexong.studentevaluation",
         "pk": 5,
         "fields" : {
-            "name": "Asistencia diaria",
-            "description": "Clase del 16 de febrero",
-            "grade_system": "ZERO_TO_ONE",
             "grade":0,
             "date": "2024-02-16",
-            "evaluation_type": "DAILY",
-            "student": 8,
-            "lesson" : 2
+            "comment": "No ha venido",
+            "evaluation_type": 2,
+            "student": 8
             }
     },
     {
-        "model": "nexong.lessonevaluation",
+        "model": "nexong.lessonattendance",
         "pk": 1,
         "fields" : {
-            "name": "No esta mal",
-            "description": "Mejorable",
-            "grade_system": "ONE_TO_FIVE",
-            "grade": 4,
             "date":"2024-02-16",
-            "evaluation_type":"ANNUAL",
-            "lesson":3,
-            "family":1
-            }
-    },
-    {
-        "model": "nexong.lessonevaluation",
-        "pk": 2,
-        "fields" : {
-            "name": "Mi hijo se agobia",
-            "description": "Los muñecos de colorines le dan ansiedad",
-            "grade_system": "ONE_TO_FIVE",
-            "grade": 3,
-            "date":"2024-01-5",
-            "evaluation_type":"ANNUAL",
-            "lesson":3,
-            "family":3
-            }
-    },
-    {
-        "model": "nexong.lessonevaluation",
-        "pk": 3,
-        "fields" : {
-            "name": "El título engaña",
-            "description": "No es literatura india, es literatura asiática en general. Me siento estafado",
-            "grade_system": "ONE_TO_FIVE",
-            "grade": 2,
-            "date":"2023-11-22",
-            "evaluation_type":"ANNUAL",
             "lesson":2,
-            "family":2
+            "volunteer": 1
             }
     },
     {
-        "model": "nexong.event",
+        "model": "nexong.lessonevent",
         "pk": 1,
         "fields" : {
             "name": "Excursión al Ordenador",
             "description": "Vamos al centro a ver El Ordenador",
             "place":"Centro Sevilla",
-            "capacity": 2,
+            "price": 25,
             "max_volunteers" : 10,
             "start_date":"2024-04-18 12:00-00:00",
             "end_date":"2024-04-18 18:00-00:00",
             "lesson": 1
             }
     },
+    
     {
-        "model": "nexong.event",
+        "model": "nexong.lessonevent",
         "pk": 2,
         "fields" : {
             "name": "Clase 16/2",
             "description": "Clase teoría",
             "place":"Clase I2.33",
-            "capacity": 22,
+            "price": 0,
             "max_volunteers" : 1,
             "start_date":"2024-02-16 12:00-00:00",
             "end_date":"2024-02-16 13:00-00:00",
@@ -1035,13 +1211,13 @@
             }
     },
     {
-        "model": "nexong.event",
+        "model": "nexong.lessonevent",
         "pk": 3,
         "fields" : {
             "name": "Clase 27/2",
             "description": "Examen del tema 2",
             "place":"Clase A56.11",
-            "capacity": 10,
+            "price": 0,
             "max_volunteers" : 1,
             "start_date":"2024-02-27 13:00-00:00",
             "end_date":"2024-02-27 13:10-00:00",
@@ -1049,31 +1225,98 @@
             }
     },
     {
-        "model": "nexong.event",
+        "model": "nexong.lessonevent_attendees",
+        "pk": 1,
+        "fields" : {
+            "lessonevent":1,
+            "student":4
+        }
+    },
+    {
+        "model": "nexong.lessonevent_attendees",
+        "pk": 2,
+        "fields" : {
+            "lessonevent":1,
+            "student":5
+        }
+    },
+    {
+        "model": "nexong.lessonevent_attendees",
+        "pk": 3,
+        "fields" : {
+            "lessonevent":2,
+            "student":4
+        }
+    },
+    {
+        "model": "nexong.lessonevent_attendees",
         "pk": 4,
+        "fields" : {
+            "lessonevent":2,
+            "student":5
+        }
+    },
+    {
+        "model": "nexong.lessonevent_educators",
+        "pk": 1,
+        "fields" : {
+            "lessonevent":2,
+            "educator":2
+        }
+    },
+    
+    {
+        "model": "nexong.lessonevent_educators",
+        "pk": 2,
+        "fields" : {
+            "lessonevent":1,
+            "educator":2
+        }
+    },
+    {
+        "model": "nexong.lessonevent_educators",
+        "pk": 3,
+        "fields" : {
+            "lessonevent":3,
+            "educator":1
+        }
+    },
+    {
+        "model": "nexong.lessonevent_volunteers",
+        "pk": 1,
+        "fields" : {
+            "lessonevent":1,
+            "volunteer":1
+        }
+    },
+    {
+        "model": "nexong.event",
+        "pk": 1,
         "fields" : {
             "name": "Vienen los lunnis",
             "description": "Se necesitan 3 voluntarios para hacer de Lucho",
             "place":"Jardín principal",
             "capacity": 200,
             "max_volunteers" : 3,
+            "max_attendees" : 20,
+            "price": 5,
             "start_date":"2024-06-12 06:00-00:00",
-            "end_date":"2024-06-12 11:00-00:00",
-            "lesson": 3
+            "end_date":"2024-06-12 11:00-00:00"
             }
     },
     {
         "model": "nexong.event",
-        "pk": 5,
+        "pk": 2,
         "fields" : {
             "name": "Celebración día de Andalucía",
             "description": "Esta es una descripción extremadamente extensa. La finalidad de esta descripción es poner a prueba las vistas de estos datos. En teoría se deben soportar hasta 1000 caracteres. Eso es una barbaridad. El extranjero (L'Étranger) es un libro de Albert Camus publicado en el año 1942 y supone una de sus obras más leídas en el mundo. La novela nos presenta a Meursault, un hombre franco-argelino que se muestra pasivo y ajeno al mundo que le rodea. Tras cometer un crimen, no experimenta el arrepentimiento, tampoco se inmuta ante la muerte de su madre. La actitud del protagonista choca con las convenciones sociales y lo conduce a su propia sentencia de muerte. La obra, por su temática, está enmarcada dentro de la filosofía del absurdo y también ha sido estudiada dentro del pensamiento existencialista, a pesar de la negativa de su autor de pertenecer a esta corriente. Veamos cómo está presente a través de un resumen y análisis del libro. ",
             "place":"Plaza de España",
             "capacity": 2000,
             "max_volunteers" : 30,
+            "max_attendees" : 200,
+            "price": 0,
             "start_date":"2024-02-28 12:00-00:00",
-            "end_date":"2024-02-28 18:00-00:00",
-            "lesson": null
+            "end_date":"2024-02-28 18:00-00:00"
             }
     },
     {
@@ -1081,71 +1324,47 @@
         "pk": 1,
         "fields" : {
             "event":1,
-            "user":3
+            "student":4
         }
     },
     {
         "model": "nexong.event_attendees",
         "pk": 2,
         "fields" : {
-            "event":4,
-            "user":4
+            "event":1,
+            "student":5
         }
     },
     {
         "model": "nexong.event_attendees",
         "pk": 3,
         "fields" : {
-            "event":4,
-            "user":5
+            "event":1,
+            "student":3
         }
     },
     {
         "model": "nexong.event_attendees",
         "pk": 4,
         "fields" : {
-            "event":4,
-            "user":3
+            "event":2,
+            "student":3
         }
     },
     {
         "model": "nexong.event_attendees",
         "pk": 5,
         "fields" : {
-            "event":5,
-            "user":3
+            "event":2,
+            "student":4
         }
     },
     {
-        "model": "nexong.event_attendees",
-        "pk": 6,
-        "fields" : {
-            "event":5,
-            "user":4
-        }
-    },
-    {
-        "model": "nexong.event_educators",
+        "model": "nexong.event_volunteers",
         "pk": 1,
         "fields" : {
             "event":2,
-            "educator":2
-        }
-    },
-    {
-        "model": "nexong.event_educators",
-        "pk": 2,
-        "fields" : {
-            "event":3,
-            "educator":1
-        }
-    },
-    {
-        "model": "nexong.event_educators",
-        "pk": 3,
-        "fields" : {
-            "event":4,
-            "educator":2
+            "volunteer":2
         }
     },
     {
@@ -1155,7 +1374,7 @@
             "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
             "student" : 4,
             "is_authorized": true,
-            "event":1
+            "lesson_event":1
             }
     },
     {
@@ -1164,88 +1383,8 @@
         "fields": {
             "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
             "student" : 5,
-            "is_authorized": true,
-            "event":1
-            }
-    },
-    {
-        "model": "nexong.centerexitauthorization",
-        "pk": 3,
-        "fields": {
-            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
-            "student" : 1,
             "is_authorized": false,
-            "event":1
-            }
-    },
-    {
-        "model": "nexong.centerexitauthorization",
-        "pk": 4,
-        "fields": {
-            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
-            "student" : 2,
-            "is_authorized": false,
-            "event":1
-            }
-    },
-    {
-        "model": "nexong.centerexitauthorization",
-        "pk": 5,
-        "fields": {
-            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
-            "student" : 3,
-            "is_authorized": true,
-            "event":1
-            }
-    },
-    {
-        "model": "nexong.centerexitauthorization",
-        "pk": 6,
-        "fields": {
-            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
-            "student" : 4,
-            "is_authorized": true,
-            "event":1
-            }
-    },
-    {
-        "model": "nexong.centerexitauthorization",
-        "pk": 7,
-        "fields": {
-            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
-            "student" : 5,
-            "is_authorized": true,
-            "event":1
-            }
-    },
-    {
-        "model": "nexong.centerexitauthorization",
-        "pk": 8,
-        "fields": {
-            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
-            "student" : 6,
-            "is_authorized": true,
-            "event":1
-            }
-    },
-    {
-        "model": "nexong.centerexitauthorization",
-        "pk": 9,
-        "fields": {
-            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
-            "student" : 7,
-            "is_authorized": true,
-            "event":1
-            }
-    },
-    {
-        "model": "nexong.centerexitauthorization",
-        "pk": 10,
-        "fields": {
-            "authorization": "NexONG_Backend\\files\\centerexit_authorization\\centerexit_authorization.txt",
-            "student" : 8,
-            "is_authorized": false,
-            "event":1
+            "lesson_event":1
             }
     }
 ]
