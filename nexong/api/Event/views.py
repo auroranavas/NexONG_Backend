@@ -19,7 +19,7 @@ class EventApiViewSet(ModelViewSet):
 
 
 class LessonEventApiViewSet(ModelViewSet):
-    queryset = Event.objects.all()
+    queryset = LessonEvent.objects.all()
     http_method_names = ["get", "post", "put", "delete"]
     serializer_class = LessonEventSerializer
     permission_classes = [permissions.isAdminOrReadOnly]
