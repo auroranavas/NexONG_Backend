@@ -164,4 +164,5 @@ cython_debug/
 .code/
 
 # Migrations
-/NexONG_Backend/nexong/migrations/*
+nexong/migrations/*
+nexong/migrations
