@@ -1,5 +1,12 @@
 from rest_framework import serializers
-from nexong.models import Lesson, Student, LessonAttendance, LessonEvent, Educator, Volunteer
+from nexong.models import (
+    Lesson,
+    Student,
+    LessonAttendance,
+    LessonEvent,
+    Educator,
+    Volunteer,
+)
 from rest_framework.serializers import ModelSerializer
 
 
@@ -22,8 +29,8 @@ class LessonSerializer(ModelSerializer):
             "url",
         ]
 
-class LessonAttendanceSerializer(ModelSerializer):
 
+class LessonAttendanceSerializer(ModelSerializer):
     class Meta:
         model = LessonAttendance
         fields = [
@@ -32,6 +39,7 @@ class LessonAttendanceSerializer(ModelSerializer):
             "lesson",
             "volunteer",
         ]
+
 
 class LessonEventSerializer(ModelSerializer):
     educators = serializers.PrimaryKeyRelatedField(
@@ -43,7 +51,6 @@ class LessonEventSerializer(ModelSerializer):
     volunteers = serializers.PrimaryKeyRelatedField(
         many=True, required=False, queryset=Volunteer.objects.all()
     )
-
 
     class Meta:
         model = LessonEvent

@@ -23,7 +23,8 @@ class LessonApiViewSet(ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
+
 class LessonAttendanceApiViewSet(ModelViewSet):
     queryset = LessonAttendance.objects.all()
     http_method_names = ["get", "post", "put", "delete"]
@@ -41,7 +42,8 @@ class LessonAttendanceApiViewSet(ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
+
 class LessonEventApiViewSet(ModelViewSet):
     queryset = LessonEvent.objects.all()
     http_method_names = ["get", "post", "put", "delete"]

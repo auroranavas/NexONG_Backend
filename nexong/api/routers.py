@@ -9,5 +9,11 @@ router_api.register(prefix="user", viewset=UserApiViewSet, basename="user")
 router_api.register(prefix="meeting", viewset=MeetingApiViewSet, basename="meeting")
 router_api.register(prefix="event", viewset=EventApiViewSet, basename="event")
 router_api.register(prefix="lesson", viewset=LessonApiViewSet, basename="lesson")
-router_api.register(prefix="lessonAttendance", viewset=LessonAttendanceApiViewSet, basename="lessonAttendance")
-router_api.register(prefix="lessonEvent", viewset=LessonEventApiViewSet, basename="lessonEvent")
+router_api.register(
+    prefix="lessonAttendance",
+    viewset=LessonAttendanceApiViewSet,
+    basename="lessonAttendance",
+)
+router_api.register(
+    prefix="lessonEvent", viewset=LessonEventApiViewSet, basename="lessonEvent"
+)
