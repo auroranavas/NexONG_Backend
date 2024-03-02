@@ -24,20 +24,22 @@ ROLE = [
 PENDING = "PENDING"
 ACCEPTED = "ACCEPTED"
 REJECTED = "REJECTED"
+EXPIRED = "EXPIRED"
 STATUS = [
     (PENDING, "Pendiente"),
     (ACCEPTED, "Aceptado"),
     (REJECTED, "Rechazado"),
+    (EXPIRED, "Caducado"),
 ]
 ANNUAL = "ANNUAL"
-MENSUAL = "MENSUAL"
+MONTHLY = "MONTHLY"
 QUARTERLY = "QUARTERLY"
 SIXMONTHLY = "SIX-MONTHLY"
-FRECUENCY = [
+FREQUENCY = [
     (ANNUAL, "Anual"),
-    (MENSUAL, "Mensual"),
+    (MONTHLY, "Mensual"),
     (QUARTERLY, "Trimestral"),
-    (SIXMONTHLY, " Seis Meses"),
+    (SIXMONTHLY, "Seis Meses"),
 ]
 THREE_YEARS = "THREE_YEARS"
 FOUR_YEARS = "FOUR_YEARS"
@@ -144,7 +146,7 @@ class Partner(models.Model):
 class Donation(models.Model):
     iban = models.CharField(max_length=34, unique=True)
     quantity = models.IntegerField(default=0, validators=[MinValueValidator(0)])
-    frequency = models.CharField(max_length=11, choices=FRECUENCY, default=MENSUAL)
+    frequency = models.CharField(max_length=11, choices=FREQUENCY, default=MONTHLY)
     holder = models.CharField(max_length=255)
     quota_extension_document = models.FileField(
         null=True, blank=True, upload_to="files/partner_quota"
@@ -161,7 +163,7 @@ class Volunteer(models.Model):
     status = models.CharField(max_length=10, choices=STATUS, default=PENDING)
     address = models.CharField(max_length=255)
     postal_code = models.IntegerField(
-        validators=[MinValueValidator(10000), MaxValueValidator(90000)], default=10000
+        validators=[MinValueValidator(00000), MaxValueValidator(90000)], default=10000
     )
     enrollment_document = models.FileField(upload_to="files/volunteer_enrollment")
     registry_sheet = models.FileField(upload_to="files/volunteer_registry")
@@ -210,13 +212,12 @@ class User(AbstractBaseUser):
     volunteer = models.OneToOneField(
         Volunteer, on_delete=models.CASCADE, blank=True, null=True
     )
-    educator_center = models.OneToOneField(
+    education_center = models.OneToOneField(
         EducationCenter, on_delete=models.CASCADE, blank=True, null=True
     )
     educator = models.OneToOneField(
         Educator, on_delete=models.CASCADE, blank=True, null=True
     )
-    is_admin = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
 
@@ -294,8 +295,8 @@ class LessonEvent(models.Model):
     description = models.CharField(max_length=1000)
     place = models.CharField(max_length=1000)
     max_volunteers = models.IntegerField(validators=[MinValueValidator(0)])
-    start_date = models.DateTimeField(blank=True)
-    end_date = models.DateTimeField(blank=True)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, null=True, blank=True)
     price = models.IntegerField(validators=[MinValueValidator(0)], default=0)
     educators = models.ManyToManyField(Educator, related_name="lesson_events")
@@ -307,11 +308,10 @@ class Event(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
     place = models.CharField(max_length=1000)
-    capacity = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     max_volunteers = models.IntegerField(validators=[MinValueValidator(0)])
     max_attendees = models.IntegerField(validators=[MinValueValidator(0)])
-    start_date = models.DateTimeField(blank=True)
-    end_date = models.DateTimeField(blank=True)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     price = models.IntegerField(validators=[MinValueValidator(0)], default=0)
     attendees = models.ManyToManyField(Student, related_name="events")
     volunteers = models.ManyToManyField(Volunteer, related_name="events")
