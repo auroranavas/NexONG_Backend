@@ -81,7 +81,6 @@ class PartnerCUDApiViewSet(APIView):
             partner = Partner.objects.get(pk=request.data["id"])
         except Partner.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         serializer = PartnerSerializer(partner, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -93,7 +92,6 @@ class PartnerCUDApiViewSet(APIView):
             partner = Partner.objects.get(pk=request.data["id"])
         except Partner.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         partner.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -118,7 +116,6 @@ class VolunteerCUDApiViewSet(APIView):
             volunteer = Volunteer.objects.get(pk=request.data["id"])
         except Volunteer.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         serializer = VolunteerSerializer(volunteer, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -130,7 +127,6 @@ class VolunteerCUDApiViewSet(APIView):
             volunteer = Volunteer.objects.get(pk=request.data["id"])
         except Volunteer.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         volunteer.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -155,7 +151,6 @@ class FamilyCUDApiViewSet(APIView):
             family = Family.objects.get(pk=request.data["id"])
         except Family.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         serializer = FamilySerializer(family, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -167,7 +162,6 @@ class FamilyCUDApiViewSet(APIView):
             family = Family.objects.get(pk=request.data["id"])
         except Family.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         family.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -191,7 +185,6 @@ class EducationCenterCUDApiViewSet(APIView):
             educationCenter = EducationCenter.objects.get(pk=request.data["id"])
         except EducationCenter.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         serializer = EducationCenterSerializer(educationCenter, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -203,6 +196,5 @@ class EducationCenterCUDApiViewSet(APIView):
             educationCenter = EducationCenter.objects.get(pk=request.data["id"])
         except EducationCenter.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         educationCenter.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
