@@ -14,6 +14,3 @@ router_api.register(
     viewset=LessonAttendanceApiViewSet,
     basename="lessonAttendance",
 )
-router_api.register(
-    prefix="lessonEvent", viewset=LessonEventApiViewSet, basename="lessonEvent"
-)
