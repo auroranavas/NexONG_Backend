@@ -9,3 +9,7 @@ admin.site.register(Educator)
 admin.site.register(Meeting)
 admin.site.register(Family)
 admin.site.register(Student)
+admin.site.register(Partner)
+admin.site.register(Volunteer)
+admin.site.register(EducationCenter)
+

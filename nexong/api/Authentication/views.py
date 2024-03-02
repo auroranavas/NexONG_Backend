@@ -170,3 +170,39 @@ class FamilyCUDApiViewSet(APIView):
 
         family.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class EducationCenterGetApiViewSet(ModelViewSet):
+    http_method_names = ["get"]
+    serializer_class = EducationCenterGetSerializer
+    queryset = EducationCenter.objects.all()
+
+
+class EducationCenterCUDApiViewSet(APIView):
+    serializer_class = EducationCenterSerializer
+
+    def post(self, request):
+        serializer = EducationCenterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def put(self, request):
+        try:
+            educationCenter = EducationCenter.objects.get(pk=request.data["id"])
+        except EducationCenter.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = EducationCenterSerializer(educationCenter, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request):
+        try:
+            educationCenter = EducationCenter.objects.get(pk=request.data["id"])
+        except EducationCenter.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        educationCenter.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
