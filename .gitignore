@@ -162,3 +162,7 @@ cython_debug/
 # Visual Studio Code
 .vscode/
 .code/
+
+# Migrations
+nexong/migrations/*
+nexong/migrations
