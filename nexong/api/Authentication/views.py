@@ -16,12 +16,14 @@ def check_user_is_authenticated(request):
     user = request.user
     return user.is_authenticated
 
+
 def process_instance(serializer_class, instance, data):
     serializer = serializer_class(instance, data=data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class UserApiViewSet(ModelViewSet):
     http_method_names = ["get", "post", "put", "delete"]
@@ -83,9 +85,8 @@ class PartnerCUDApiViewSet(APIView):
             partner = Partner.objects.get(pk=request.data["id"])
         except Partner.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        
-        return process_instance(PartnerSerializer, partner, request.data)
 
+        return process_instance(PartnerSerializer, partner, request.data)
 
     def delete(self, request):
         try:
@@ -118,7 +119,6 @@ class VolunteerCUDApiViewSet(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         return process_instance(VolunteerSerializer, volunteer, request.data)
 
-
     def delete(self, request):
         try:
             volunteer = Volunteer.objects.get(pk=request.data["id"])
@@ -150,7 +150,6 @@ class FamilyCUDApiViewSet(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         return process_instance(FamilySerializer, family, request.data)
 
-
     def delete(self, request):
         try:
             family = Family.objects.get(pk=request.data["id"])
@@ -180,7 +179,9 @@ class EducationCenterCUDApiViewSet(APIView):
             educationCenter = EducationCenter.objects.get(pk=request.data["id"])
         except EducationCenter.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        return process_instance(EducationCenterSerializer, educationCenter, request.data)
+        return process_instance(
+            EducationCenterSerializer, educationCenter, request.data
+        )
 
     def delete(self, request):
         try:
