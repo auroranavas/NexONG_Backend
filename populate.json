@@ -194,6 +194,25 @@
             }
     },
     {
+        "model": "nexong.student",
+        "pk": 8,
+        "fields" : {
+            "name": "Deserter",
+            "surname" : "Soltero",
+            "education_center": 2,
+            "is_morning_student": false,
+            "activities_during_exit": "",
+            "status": "EXPIRED",
+            "current_education_year": "THIRD_PRIMARY",
+            "education_center_tutor": "Hulk Hogan",
+            "enrollment_document": "NexONG_Backend\\files\\student_enrollment\\student_enrollment.txt",
+            "scanned_sanitary_card": "NexONG_Backend\\files\\student_sanitary\\student_sanitary.txt",
+            "nationality" : "España",
+            "birthdate" : "2015-1-12",
+            "family":4
+            }
+    },
+    {
         "model": "nexong.quartermarks",
         "pk": 1,
         "fields" : {
