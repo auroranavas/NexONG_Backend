@@ -5,7 +5,7 @@ from rest_framework.serializers import ModelSerializer
 
 class LessonSerializer(ModelSerializer):
     students = serializers.PrimaryKeyRelatedField(
-        many=True, required=False, queryset=Student.objects.all()
+        many=True, required=True, queryset=Student.objects.all()
     )
     url = serializers.HyperlinkedIdentityField(view_name="meeting-detail")
 
