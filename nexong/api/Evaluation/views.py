@@ -19,7 +19,7 @@ class StudentEvaluationApiViewSet(ModelViewSet):
 
 
 class EvaluationTypeApiViewSet(ModelViewSet):
-    queryset = LessonEvent.objects.all()
+    queryset = EvaluationType.objects.all()
     http_method_names = ["get", "post", "put", "delete"]
     serializer_class = EvaluationTypeSerializer
     permission_classes = [permissions.isAdminOrReadOnly]
