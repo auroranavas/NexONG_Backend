@@ -5,6 +5,7 @@ from nexong.models import (
     LessonAttendance
 )
 from rest_framework.serializers import ModelSerializer
+from datetime import datetime, timezone
 
 
 class LessonSerializer(ModelSerializer):
@@ -23,8 +24,28 @@ class LessonSerializer(ModelSerializer):
             "is_morning_lesson",
             "educator",
             "students",
+            "start_date",
+            "end_date",
             "url",
         ]
+
+    def validate(self, attrs):
+        validation_error = {}
+
+        start_date = attrs.get("start_date")
+        if start_date <= datetime.now(timezone.utc):
+            validation_error["start_date"] = "The start date must be in the future."
+
+        end_date = attrs.get("end_date")
+        if end_date <= datetime.now(timezone.utc):
+            validation_error["end_date"] = "The end date must be in the future."
+        if end_date <= start_date:
+            validation_error["end_date"] = "The end date must be after the start date."
+
+        if validation_error:
+            raise serializers.ValidationError(validation_error)
+
+        return attrs
 
 
 class LessonAttendanceSerializer(ModelSerializer):
@@ -36,3 +57,13 @@ class LessonAttendanceSerializer(ModelSerializer):
             "lesson",
             "volunteer",
         ]
+    def validate(self, attrs):
+        validation_error = {}
+
+        date = attrs.get("date")
+        if date <= datetime.now(timezone.utc):
+            validation_error["start_date"] = "The date must be now or in the past."
+        if validation_error:
+            raise serializers.ValidationError(validation_error)
+
+        return attrs
