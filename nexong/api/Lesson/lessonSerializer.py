@@ -2,10 +2,7 @@ from rest_framework import serializers
 from nexong.models import (
     Lesson,
     Student,
-    LessonAttendance,
-    LessonEvent,
-    Educator,
-    Volunteer,
+    LessonAttendance
 )
 from rest_framework.serializers import ModelSerializer
 
