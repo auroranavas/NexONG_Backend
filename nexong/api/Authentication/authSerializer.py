@@ -1,3 +1,4 @@
+import datetime
 from rest_framework import serializers
 from nexong.models import *
 from rest_framework.serializers import ModelSerializer
@@ -14,6 +15,10 @@ class EducatorSerializer(ModelSerializer):
         model = Educator
         fields = "__all__"
 
+    def validate(self, data):
+        if data["birthdate"] > datetime.date.today():
+            raise serializers.ValidationError("Birthdate can't be greater than today")
+        return data
 
 class PartnerSerializer(ModelSerializer):
     class Meta:
