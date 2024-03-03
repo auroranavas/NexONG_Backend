@@ -1,9 +1,5 @@
 from rest_framework import serializers
-from nexong.models import (
-    Lesson,
-    Student,
-    LessonAttendance
-)
+from nexong.models import Lesson, Student, LessonAttendance
 from rest_framework.serializers import ModelSerializer
 from datetime import datetime, timezone
 
@@ -57,6 +53,7 @@ class LessonAttendanceSerializer(ModelSerializer):
             "lesson",
             "volunteer",
         ]
+
     def validate(self, attrs):
         validation_error = {}
 

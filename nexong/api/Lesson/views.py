@@ -31,7 +31,6 @@ class LessonAttendanceApiViewSet(ModelViewSet):
     serializer_class = LessonAttendanceSerializer
     permission_classes = [permissions.isAdminOrReadOnly]
 
-
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
