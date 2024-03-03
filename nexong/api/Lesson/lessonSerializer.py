@@ -29,12 +29,15 @@ class LessonSerializer(ModelSerializer):
         validation_error = {}
 
         attendees = attrs.get("students")
-        num_attendees = len(attendees)
+        if attendees:
+            num_attendees = len(attendees)
+        else:
+            num_attendees = 0
         max_attendees = attrs.get("capacity")
         if max_attendees < num_attendees:
-            validation_error[
-                "capacity"
-            ] = "capacity must be higher or equal to the number of attendees selected."
+            validation_error["capacity"] = (
+                "capacity must be higher or equal to the number of attendees selected."
+            )
         start_date = attrs.get("start_date")
         if start_date <= datetime.now(timezone.utc):
             validation_error["start_date"] = "The start date must be in the future."
@@ -65,8 +68,8 @@ class LessonAttendanceSerializer(ModelSerializer):
         validation_error = {}
 
         dateLesson = attrs.get("date")
-        if dateLesson > date.today():
-            validation_error["date"] = "The date must be now or in the past."
+        if dateLesson < date.today():
+            validation_error["date"] = "The date must be now or in the future."
         if validation_error:
             raise serializers.ValidationError(validation_error)
 
