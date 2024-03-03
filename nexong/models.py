@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.core.validators import (
@@ -247,7 +248,9 @@ class Lesson(models.Model):
     educator = models.ForeignKey(
         Educator, on_delete=models.CASCADE, related_name="lessons"
     )
-    students = models.ManyToManyField(Student, related_name="lessons")
+    students = models.ManyToManyField(
+        Student, related_name="lessons", blank=True, null=True
+    )
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
 
