@@ -110,8 +110,12 @@ class Student(models.Model):
         max_length=20, choices=CURRENT_EDUCATION_YEAR, default=THREE_YEARS
     )
     education_center_tutor = models.CharField(max_length=255)
-    enrollment_document = models.FileField(upload_to="files/student_enrollment")
-    scanned_sanitary_card = models.FileField(upload_to="files/student_sanitary")
+    enrollment_document = models.FileField(
+        upload_to="files/student_enrollment", null=True, blank=True
+    )
+    scanned_sanitary_card = models.FileField(
+        upload_to="files/student_sanitary", null=True, blank=True
+    )
     nationality = models.CharField(max_length=255)
     birthdate = models.DateField()
     is_morning_student = models.BooleanField(default=False)
@@ -302,11 +306,15 @@ class LessonEvent(models.Model):
     max_volunteers = models.IntegerField(validators=[MinValueValidator(0)])
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, null=True, blank=True)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     price = models.IntegerField(validators=[MinValueValidator(0)], default=0)
     educators = models.ManyToManyField(Educator, related_name="lesson_events")
-    attendees = models.ManyToManyField(Student, related_name="lesson_events")
-    volunteers = models.ManyToManyField(Volunteer, related_name="lesson_events")
+    attendees = models.ManyToManyField(
+        Student, related_name="lesson_events", null=True, blank=True
+    )
+    volunteers = models.ManyToManyField(
+        Volunteer, related_name="lesson_events", null=True, blank=True
+    )
 
 
 class Event(models.Model):
@@ -318,7 +326,9 @@ class Event(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     price = models.IntegerField(validators=[MinValueValidator(0)], default=0)
-    attendees = models.ManyToManyField(Student, related_name="events")
+    attendees = models.ManyToManyField(
+        Student, related_name="events", null=True, blank=True
+    )
     volunteers = models.ManyToManyField(Volunteer, related_name="events")
 
 

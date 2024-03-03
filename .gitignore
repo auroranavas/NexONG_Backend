@@ -166,3 +166,6 @@ cython_debug/
 # Migrations
 nexong/migrations/*
 nexong/migrations
+
+# Server files
+files/
