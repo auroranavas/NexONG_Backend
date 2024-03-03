@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from nexong.models import Lesson, Student, LessonAttendance
 from rest_framework.serializers import ModelSerializer
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 
 class LessonSerializer(ModelSerializer):
@@ -63,8 +63,8 @@ class LessonAttendanceSerializer(ModelSerializer):
     def validate(self, attrs):
         validation_error = {}
 
-        date = attrs.get("date")
-        if date <= datetime.now(timezone.utc):
+        dateLesson = attrs.get("date")
+        if dateLesson > date.today():
             validation_error["date"] = "The date must be now or in the past."
         if validation_error:
             raise serializers.ValidationError(validation_error)
