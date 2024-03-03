@@ -20,6 +20,7 @@ class EducatorSerializer(ModelSerializer):
             raise serializers.ValidationError("Birthdate can't be greater than today")
         return data
 
+
 class PartnerSerializer(ModelSerializer):
     class Meta:
         model = Partner
