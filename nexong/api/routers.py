@@ -21,7 +21,9 @@ router_api.register(
     basename="lessonAttendance",
 )
 router_api.register(prefix="donation", viewset=DonationApiViewSet, basename="donation")
-router_api.register(prefix="volunteer", viewset=EventApiViewSet, basename="volunteer")
+router_api.register(
+    prefix="volunteer", viewset=VolunteerApiViewSet, basename="volunteer"
+)
 router_api.register(
     prefix="lesson-event", viewset=LessonEventApiViewSet, basename="lessonevent"
 )

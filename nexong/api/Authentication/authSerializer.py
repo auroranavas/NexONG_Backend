@@ -37,6 +37,11 @@ class VolunteerSerializer(ModelSerializer):
         model = Volunteer
         fields = "__all__"
 
+    def validate(self, data):
+        if data["birthdate"] > datetime.date.today():
+            raise serializers.ValidationError("Birthdate can't be greater than today")
+        return data
+
 
 class FamilySerializer(ModelSerializer):
     class Meta:
