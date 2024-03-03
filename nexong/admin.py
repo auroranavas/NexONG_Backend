@@ -15,4 +15,3 @@ admin.site.register(EducationCenter)
 admin.site.register(Lesson)
 admin.site.register(StudentEvaluation)
 admin.site.register(CenterExitAuthorization)
-
