@@ -10,6 +10,7 @@ from rest_framework.views import APIView
 from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
 
+
 def check_user_is_admin(request):
     user = request.user
     return user.is_staff
@@ -19,12 +20,14 @@ def check_user_is_authenticated(request):
     user = request.user
     return user.is_authenticated
 
+
 def process_instance(serializer_class, instance, data):
     serializer = serializer_class(instance, data=data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class UserApiViewSet(ModelViewSet):
     http_method_names = ["get", "post", "put", "delete"]
