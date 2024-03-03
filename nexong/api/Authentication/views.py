@@ -1,14 +1,9 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.decorators import action
-from rest_framework.generics import GenericAPIView
-from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework.response import Response
 from rest_framework import status
 from ...models import *
 from .authSerializer import *
-from rest_framework.views import APIView
-from rest_framework import viewsets
-from django.shortcuts import get_object_or_404
+
 
 
 def check_user_is_admin(request):
