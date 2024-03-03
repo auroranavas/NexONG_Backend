@@ -13,10 +13,15 @@ class CenterExitSerializer(ModelSerializer):
 
     class Meta:
         model = CenterExitAuthorization
-        fields = [
-            "id",
-            "authorization",
-            "student",
-            "is_authorized",
-            "lesson_event",
-        ]
+        fields = "__all__"
+
+    def validate(self, data):
+        student = data["student"]
+        lesson_event = data["lesson_event"]
+        if CenterExitAuthorization.objects.filter(
+            student=student, lesson_event=lesson_event
+        ).exists():
+            raise serializers.ValidationError(
+                "An authorization for this student and lesson event already exists."
+            )
+        return data
