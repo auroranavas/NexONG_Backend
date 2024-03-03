@@ -1,3 +1,4 @@
+from nexong.api.Event.views import EventApiViewSet
 from rest_framework.routers import DefaultRouter
 from nexong.api.CenterExit.views import CenterExitApiViewSet
 from nexong.api.Student.views import StudentApiViewSet
@@ -7,6 +8,7 @@ from .Event.views import *
 from .Lesson.views import *
 from .Donation.views import *
 from .Evaluation.views import *
+from .Donation.views import *
 
 router_api = DefaultRouter()
 router_api.register(prefix="user", viewset=UserApiViewSet, basename="user")
@@ -19,7 +21,9 @@ router_api.register(
     basename="lessonAttendance",
 )
 router_api.register(prefix="donation", viewset=DonationApiViewSet, basename="donation")
-router_api.register(prefix="volunteer", viewset=EventApiViewSet, basename="volunteer")
+router_api.register(
+    prefix="volunteer", viewset=VolunteerApiViewSet, basename="volunteer"
+)
 router_api.register(
     prefix="lesson-event", viewset=LessonEventApiViewSet, basename="lessonevent"
 )
@@ -36,4 +40,12 @@ router_api.register(
     prefix="evaluation-type",
     viewset=EvaluationTypeApiViewSet,
     basename="evaluationtype",
+)
+router_api.register(prefix="educator", viewset=EducatorApiViewSet, basename="educator")
+router_api.register(prefix="partner", viewset=PartnerApiViewSet, basename="partner")
+router_api.register(prefix="family", viewset=FamilyApiViewSet, basename="family")
+router_api.register(
+    prefix="educationCenter",
+    viewset=EducationCenterApiViewSet,
+    basename="educationCenter",
 )
