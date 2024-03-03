@@ -1,6 +1,14 @@
 # [START django_app]
 service: default
 runtime: python39
+env_variables:
+  DJANGO_SETTINGS_MODULE: "settings"
+  DB_NAME: "nexongdb"
+  DB_USERNAME: "nexong"
+  DB_PASSWORD: "manosabiertas2024"
+  DB_HOST: "/cloudsql/ispp-backend:europe-west1:nexongdb"
+  DB_PORT: 3306
+  DB_TIMEOUT: 5000
 handlers:
   # This configures Google App Engine to serve the files in the app's
   # static directory.
