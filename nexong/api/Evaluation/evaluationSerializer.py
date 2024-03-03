@@ -1,7 +1,9 @@
 from rest_framework import serializers
 from nexong.models import EvaluationType, StudentEvaluation, Lesson
 from rest_framework.serializers import ModelSerializer
-from datetime import datetime, timezone
+
+
+# TO-DO: Add validation if the date of the grade goes beyond the date of the lesson
 
 
 class StudentEvaluationSerializer(ModelSerializer):
@@ -31,15 +33,15 @@ class StudentEvaluationSerializer(ModelSerializer):
 
         if grade_range == "ZERO_TO_ONE":
             if grade > 1:
-                validation_error[
-                    "grade"
-                ] = "The grade must be in range from 0 to 1 for this evaluation type."
+                validation_error["grade"] = (
+                    "The grade must be in range from 0 to 1 for this evaluation type."
+                )
 
         elif grade_range == "ONE_TO_FIVE":
             if grade > 5 or grade < 1:
-                validation_error[
-                    "grade"
-                ] = "The grade must be in range from 1 to 5 for this evaluation type."
+                validation_error["grade"] = (
+                    "The grade must be in range from 1 to 5 for this evaluation type."
+                )
 
         if validation_error:
             raise serializers.ValidationError(validation_error)

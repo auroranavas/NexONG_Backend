@@ -8,7 +8,6 @@ from .Event.views import *
 from .Lesson.views import *
 from .Donation.views import *
 from .Evaluation.views import *
-from .Donation.views import *
 
 router_api = DefaultRouter()
 router_api.register(prefix="user", viewset=UserApiViewSet, basename="user")
