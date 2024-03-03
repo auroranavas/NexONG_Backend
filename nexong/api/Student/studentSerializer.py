@@ -31,17 +31,16 @@ class StudentSerializer(ModelSerializer):
             "family",
         ]
 
-        def validation_error(title="Error"):
-            raise serializers.ValidationError(title)
-
         def validate(self, data):
             if data["name"] == "":
-                self.validation_error("Name can't be empty")
+                raise serializers.ValidationError("Name can't be empty")
 
             if data["surname"] == "":
-                self.validation_error("Surname can't be empty")
+                raise serializers.ValidationError("Surname can't be empty")
 
             if data["birthdate"] > datetime.date.today():
-                self.validation_error("Birthdate can't be greater than today")
+                raise serializers.ValidationError(
+                    "Birthdate can't be greater than today"
+                )
 
             return data
