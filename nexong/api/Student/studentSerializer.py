@@ -6,7 +6,7 @@ from nexong.models import EducationCenter, Family, Student
 
 class StudentSerializer(ModelSerializer):
     education_center = serializers.PrimaryKeyRelatedField(
-        many=False, required=True, queryset=EducationCenter.objects.all()
+        many=False, required=False, queryset=EducationCenter.objects.all()
     )
     family = serializers.PrimaryKeyRelatedField(
         many=False, required=True, queryset=Family.objects.all()
