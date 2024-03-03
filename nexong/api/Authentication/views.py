@@ -5,7 +5,6 @@ from ...models import *
 from .authSerializer import *
 
 
-
 def check_user_is_admin(request):
     user = request.user
     return user.is_staff
@@ -29,6 +28,7 @@ class UserApiViewSet(ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
+
 class EducatorApiViewSet(ModelViewSet):
     queryset = Educator.objects.all()
     http_method_names = ["get", "post", "put", "delete"]
@@ -38,7 +38,8 @@ class EducatorApiViewSet(ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
+
 class PartnerApiViewSet(ModelViewSet):
     queryset = Partner.objects.all()
     http_method_names = ["get", "post", "put", "delete"]
@@ -49,6 +50,7 @@ class PartnerApiViewSet(ModelViewSet):
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
 class VolunteerApiViewSet(ModelViewSet):
     queryset = Volunteer.objects.all()
     http_method_names = ["get", "post", "put", "delete"]
@@ -58,7 +60,8 @@ class VolunteerApiViewSet(ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
+
 class FamilyApiViewSet(ModelViewSet):
     queryset = Family.objects.all()
     http_method_names = ["get", "post", "put", "delete"]
@@ -68,6 +71,7 @@ class FamilyApiViewSet(ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class EducationCenterApiViewSet(ModelViewSet):
     queryset = EducationCenter.objects.all()

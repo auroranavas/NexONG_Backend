@@ -9,6 +9,7 @@ from .Lesson.views import *
 from .Donation.views import *
 from .Evaluation.views import *
 from .Donation.views import *
+
 router_api = DefaultRouter()
 router_api.register(prefix="user", viewset=UserApiViewSet, basename="user")
 router_api.register(prefix="meeting", viewset=MeetingApiViewSet, basename="meeting")
@@ -38,9 +39,11 @@ router_api.register(
     viewset=EvaluationTypeApiViewSet,
     basename="evaluationtype",
 )
-router_api.register(
-    prefix="educator", viewset=EducatorApiViewSet, basename="educator"
-)
+router_api.register(prefix="educator", viewset=EducatorApiViewSet, basename="educator")
 router_api.register(prefix="partner", viewset=PartnerApiViewSet, basename="partner")
 router_api.register(prefix="family", viewset=FamilyApiViewSet, basename="family")
-router_api.register(prefix="educationCenter", viewset=EducationCenterApiViewSet, basename="educationCenter")
+router_api.register(
+    prefix="educationCenter",
+    viewset=EducationCenterApiViewSet,
+    basename="educationCenter",
+)
