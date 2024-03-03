@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.core.validators import (
@@ -149,7 +150,12 @@ class Partner(models.Model):
 
 class Donation(models.Model):
     iban = models.CharField(max_length=34, unique=True)
-    quantity = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    quantity = models.DecimalField(
+        default=Decimal("0.01"),
+        validators=[MinValueValidator(Decimal("0.01"))],
+        max_digits=10,
+        decimal_places=2,
+    )
     frequency = models.CharField(max_length=11, choices=FREQUENCY, default=MONTHLY)
     holder = models.CharField(max_length=255)
     quota_extension_document = models.FileField(
@@ -242,7 +248,9 @@ class Lesson(models.Model):
     educator = models.ForeignKey(
         Educator, on_delete=models.CASCADE, related_name="lessons"
     )
-    students = models.ManyToManyField(Student, related_name="lessons")
+    students = models.ManyToManyField(
+        Student, related_name="lessons", blank=True, null=True
+    )
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
 
