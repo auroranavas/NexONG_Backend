@@ -16,6 +16,7 @@ router_api.register(
 router_api.register(prefix="student", viewset=StudentApiViewSet, basename="student")
 router_api.register(
     prefix="centerexit", viewset=CenterExitApiViewSet, basename="centerexit"
+)
 router_api.register(
     prefix="student-evaluation",
     viewset=StudentEvaluationApiViewSet,
