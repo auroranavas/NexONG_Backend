@@ -12,14 +12,14 @@ router_api.register(prefix="user", viewset=UserApiViewSet, basename="user")
 router_api.register(prefix="meeting", viewset=MeetingApiViewSet, basename="meeting")
 router_api.register(prefix="event", viewset=EventApiViewSet, basename="event")
 router_api.register(
-    prefix="educator", viewset=EducatorGetApiViewSet, basename="educator"
+    prefix="educator", viewset=EducatorApiViewSet, basename="educator"
 )
-router_api.register(prefix="partner", viewset=PartnerGetApiViewSet, basename="partner")
+router_api.register(prefix="partner", viewset=PartnerApiViewSet, basename="partner")
 router_api.register(
-    prefix="volunteer", viewset=VolunteerGetApiViewSet, basename="volunteer"
+    prefix="volunteer", viewset=VolunteerApiViewSet, basename="volunteer"
 )
-router_api.register(prefix="family", viewset=FamilyGetApiViewSet, basename="family")
-router_api.register(prefix="educationCenter", viewset=EducationCenterGetApiViewSet, basename="educationCenter")
+router_api.register(prefix="family", viewset=FamilyApiViewSet, basename="family")
+router_api.register(prefix="educationCenter", viewset=EducationCenterApiViewSet, basename="educationCenter")
 router_api.register(
     prefix="lesson-event", viewset=LessonEventApiViewSet, basename="lessonevent"
 )
