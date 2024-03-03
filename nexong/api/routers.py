@@ -19,7 +19,11 @@ router_api.register(
     prefix="volunteer", viewset=VolunteerGetApiViewSet, basename="volunteer"
 )
 router_api.register(prefix="family", viewset=FamilyGetApiViewSet, basename="family")
-router_api.register(prefix="educationCenter", viewset=EducationCenterGetApiViewSet, basename="educationCenter")
+router_api.register(
+    prefix="educationCenter",
+    viewset=EducationCenterGetApiViewSet,
+    basename="educationCenter",
+)
 router_api.register(
     prefix="lesson-event", viewset=LessonEventApiViewSet, basename="lessonevent"
 )
