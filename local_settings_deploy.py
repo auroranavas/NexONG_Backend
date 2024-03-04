@@ -5,10 +5,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ALLOWED_HOSTS = ["*"]
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
-print(SECRET_KEY)
+# SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = "GAE" not in os.environ
+SECRET_KEY = "postgres://nexongdb:manosabiertas2024@//cloudsql/ispp-backend:europe-west1:nexongdb/nexongdb"
+
+
+DEBUG = False
 
 # Modules in use, commented modules that you won't use
 MODULES = [
@@ -28,7 +30,8 @@ MIDDLEWARE = [
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = os.getenv("GS_BUCKET_NAME")
+# STATICFILES_STORAGE = os.getenv("GS_BUCKET_NAME")
+STATICFILES_STORAGE = "ispp-backend_ispp-backend.appspot.com"
 """
 BASEURL = "https://{}".format(os.environ.get("RENDER_EXTERNAL_HOSTNAME"))
 
@@ -44,7 +47,8 @@ APIS = {
     "voting": BASEURL,
 }
 """
-DATABASE_URL = os.environ.get("DATABASE_URL")
+# DATABASE_URL = os.environ.get("DATABASE_URL")
+DATABASE_URL = "postgres://nexongdb:manosabiertas2024@//cloudsql/ispp-backend:europe-west1:nexongdb/nexongdb"
 DATABASES = {"default": dj_database_url.parse(DATABASE_URL)}
 
 # ALLOWED_ORIGINS = ["https://{}".format(os.environ.get("RENDER_EXTERNAL_HOSTNAME"))]
