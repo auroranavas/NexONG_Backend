@@ -14,7 +14,7 @@ SECRET_KEY = "django-insecure-908#c4*6a*!(2ncjv!#$kh6c%%)q^rn0n2c4o*w(i6ry5$jjy+
 # SECURITY WARNING: don't run with debug turned on in production!
 production = "SECRET_ONE" in os.environ
 DEBUG = not production
-
+#
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = []
 
