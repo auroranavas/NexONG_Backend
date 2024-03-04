@@ -19,7 +19,7 @@ handlers:
 
 env_variables:
   GAE: True
-  DATABASE_URL: "DATABASE_URL=postgres://nexongdb:manosabiertas2024@//cloudsql/ispp-backend:europe-west1:nexongdb/nexongdb"
+  DATABASE_URL: "postgres://nexongdb:manosabiertas2024@//cloudsql/ispp-backend:europe-west1:nexongdb/nexongdb"
   GS_BUCKET_NAME: "ispp-backend_ispp-backend.appspot.com"
   SECRET_KEY: "django-insecure-908#c4*6a*!(2ncjv!#$kh6c%%)q^rn0n2c4o*w(i6ry5$jjy+"
 
