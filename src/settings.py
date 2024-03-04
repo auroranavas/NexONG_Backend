@@ -12,7 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-908#c4*6a*!(2ncjv!#$kh6c%%)q^rn0n2c4o*w(i6ry5$jjy+"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "SECRET_ONE" not in os.environ
+production = "SECRET_ONE" in os.environ
+DEBUG = not production
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = []
@@ -69,16 +70,17 @@ WSGI_APPLICATION = "src.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "nexongdb",
-        "USER": "nexong",
-        "PASSWORD": "nexong",
-        "HOST": "localhost",
-        "PORT": "5432",
+if not production:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "nexongdb",
+            "USER": "nexong",
+            "PASSWORD": "nexong",
+            "HOST": "localhost",
+            "PORT": "5432",
+        }
     }
-}
 
 
 # Password validation
