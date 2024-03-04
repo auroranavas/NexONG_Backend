@@ -1,14 +1,10 @@
 # [START django_app]
 service: default
-runtime: python39
-env_variables:
-  DJANGO_SETTINGS_MODULE: "settings"
-  DB_NAME: "nexongdb"
-  DB_USERNAME: "nexong"
-  DB_PASSWORD: "manosabiertas2024"
-  DB_HOST: "/cloudsql/ispp-backend:europe-west1:nexongdb"
-  DB_PORT: 3306
-  DB_TIMEOUT: 5000
+runtime: python
+runtime_config:
+    operating_system: "ubuntu22"
+    runtime_version: "3.11"
+env: flex
 handlers:
   # This configures Google App Engine to serve the files in the app's
   # static directory.
@@ -20,5 +16,11 @@ handlers:
   # files defined.
   - url: /.*
     script: auto
+
+env_variables:
+  GAE: True
+  DATABASE_URL: "DATABASE_URL=postgres://nexongdb:manosabiertas2024@//cloudsql/ispp-backend:europe-west1:nexongdb/nexongdb"
+  GS_BUCKET_NAME: "ispp-backend_ispp-backend.appspot.com"
+  SECRET_KEY: "django-insecure-908#c4*6a*!(2ncjv!#$kh6c%%)q^rn0n2c4o*w(i6ry5$jjy+"
 
 entrypoint: gunicorn -b :$PORT your_project_name.wsgi
