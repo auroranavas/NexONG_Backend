@@ -46,7 +46,7 @@ jobs:
 
       - name: Run Migrations
         run: |
-          python manage.py makemigrations
+          python manage.py makemigrations nexong
           python manage.py migrate
           python manage.py loaddata populate.json
 
