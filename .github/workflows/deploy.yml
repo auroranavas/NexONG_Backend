@@ -39,6 +39,7 @@ jobs:
         run: |
           python manage.py makemigrations
           python manage.py migrate
+          python manage.py loaddata populate.json
 
       - name: Deploy to App Engine
         id: deploy

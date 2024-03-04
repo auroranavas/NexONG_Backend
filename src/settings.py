@@ -11,12 +11,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-908#c4*6a*!(2ncjv!#$kh6c%%)q^rn0n2c4o*w(i6ry5$jjy+"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = os.environ.get("GAE", "True") == "True"
+DEBUG = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = ["moz-extension://d8e9b363-83a5-44fc-9519-03eadf6efffb"]
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
+
 APPEND_SLASH = True
 
 
@@ -122,3 +122,9 @@ STATIC_ROOT = BASE_DIR / "static"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+if not DEBUG:
+    try:
+        from local_settings_deploy import *
+    except ImportError:
+        print("local_settings.deploy.py not found")
