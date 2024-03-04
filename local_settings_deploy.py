@@ -6,8 +6,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = ["*"]
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
+print(SECRET_KEY)
 
-DEBUG = "RENDER" not in os.environ
+DEBUG = "GAE" not in os.environ
 
 # Modules in use, commented modules that you won't use
 MODULES = [
